@@ -20,6 +20,9 @@ public class Measurement {
     public String Convert(double value) {
         double tval = value;
         int order = 0;
+        if (tval == 0) {
+            return "0";
+        }
         while (tval >= 1000.0) {
             tval /= 1000.0;
             order += 3;
@@ -31,7 +34,7 @@ public class Measurement {
         if (prefixes.containsKey(order)) {
             return ((float) tval) + prefixes.get(order);
         }
-        return String.valueOf((float)value);
+        return String.valueOf((float) value);
 
     }
 }

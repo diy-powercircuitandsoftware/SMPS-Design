@@ -8,6 +8,28 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Topology"/>
           </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="MenuIsolate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Isolate"/>
+              </Properties>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="MenuNonIsolate">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="NonIsolate"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="MenuItemBuckConverter">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="BuckConverter"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemBuckConverterActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="MenuErrorAmp">
           <Properties>
@@ -29,7 +51,15 @@
               <SubComponents>
                 <MenuItem class="javax.swing.JMenuItem" name="MenuItemErrorAmpT2LC">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jMenuItem1"/>
+                    <Property name="text" type="java.lang.String" value="VoltageFeedBack"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemErrorAmpT2LCActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="MenuItemErrorAmpT2RC">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="CurrentFeedBack"/>
                   </Properties>
                 </MenuItem>
               </SubComponents>

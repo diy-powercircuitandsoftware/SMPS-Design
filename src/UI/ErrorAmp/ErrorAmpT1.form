@@ -131,7 +131,6 @@
         <Property name="text" type="java.lang.String" value="Calculator"/>
       </Properties>
       <Events>
-        <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="BNCalculatorMousePressed"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BNCalculatorActionPerformed"/>
       </Events>
     </Component>

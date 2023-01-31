@@ -41,11 +41,6 @@ public class ErrorAmpT1 extends javax.swing.JDialog {
         ComboSFUnit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem(1000, "k"), new ComboItem(1000000, "M")}));
 
         BNCalculator.setText("Calculator");
-        BNCalculator.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                BNCalculatorMousePressed(evt);
-            }
-        });
         BNCalculator.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BNCalculatorActionPerformed(evt);
@@ -128,17 +123,13 @@ public class ErrorAmpT1 extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void BNCalculatorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BNCalculatorMousePressed
+    private void BNCalculatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BNCalculatorActionPerformed
         Measurement m = new Measurement();
         double swfeq = Double.valueOf(SpinnerSF.getValue().toString()) * Double.valueOf(((ComboItem) ComboSFUnit.getSelectedItem()).key);
         double crossover = swfeq / Double.valueOf(ComboCrossOver.getSelectedItem().toString());
         double r = Double.valueOf(SpinnerR1.getValue().toString()) * Double.valueOf(((ComboItem) ComboR1Unit.getSelectedItem()).key);
         double c = 1 / (2 * Math.PI * crossover * r);
         LabelC1Output.setText(m.Convert(c) + "f");
-    }//GEN-LAST:event_BNCalculatorMousePressed
-
-    private void BNCalculatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BNCalculatorActionPerformed
-        // TODO add your handling code here:
     }//GEN-LAST:event_BNCalculatorActionPerformed
 
 
