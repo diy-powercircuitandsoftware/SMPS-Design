@@ -2,16 +2,16 @@ package UI.ComboBox;
 
 public class ComboItem {
 
-    public int key;
+    public String key;
     public String value;
 
-    public ComboItem(int key, String value) {
+    public ComboItem(String key, String value) {
         this.key = key;
         this.value = value;
     }
 
     @Override
     public String toString() {
-        return this.value;
+        return this.key;
     }
 }

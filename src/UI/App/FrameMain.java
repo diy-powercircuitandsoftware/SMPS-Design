@@ -1,15 +1,15 @@
 package UI.App;
 
 import UI.ErrorAmp.ErrorAmpT1;
-import UI.ErrorAmp.ErrorAmpT2LC;
+import UI.ErrorAmp.ErrorAmpT2;
 import UI.Topology.NonIsolate.BuckConverter;
 
 public class FrameMain extends javax.swing.JFrame {
-    
+
     public FrameMain() {
         initComponents();
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -21,9 +21,7 @@ public class FrameMain extends javax.swing.JFrame {
         MenuItemBuckConverter = new javax.swing.JMenuItem();
         MenuErrorAmp = new javax.swing.JMenu();
         MenuItemErrorAmpT1 = new javax.swing.JMenuItem();
-        MenuErrorAmpT2 = new javax.swing.JMenu();
-        MenuItemErrorAmpT2LC = new javax.swing.JMenuItem();
-        MenuItemErrorAmpT2RC = new javax.swing.JMenuItem();
+        MenuItemErrorAmpT2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main");
@@ -57,20 +55,13 @@ public class FrameMain extends javax.swing.JFrame {
         });
         MenuErrorAmp.add(MenuItemErrorAmpT1);
 
-        MenuErrorAmpT2.setText("Type2");
-
-        MenuItemErrorAmpT2LC.setText("VoltageFeedBack");
-        MenuItemErrorAmpT2LC.addActionListener(new java.awt.event.ActionListener() {
+        MenuItemErrorAmpT2.setText("Type2");
+        MenuItemErrorAmpT2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuItemErrorAmpT2LCActionPerformed(evt);
+                MenuItemErrorAmpT2ActionPerformed(evt);
             }
         });
-        MenuErrorAmpT2.add(MenuItemErrorAmpT2LC);
-
-        MenuItemErrorAmpT2RC.setText("CurrentFeedBack");
-        MenuErrorAmpT2.add(MenuItemErrorAmpT2RC);
-
-        MenuErrorAmp.add(MenuErrorAmpT2);
+        MenuErrorAmp.add(MenuItemErrorAmpT2);
 
         MainMenuBar.add(MenuErrorAmp);
 
@@ -94,16 +85,16 @@ public class FrameMain extends javax.swing.JFrame {
         new ErrorAmpT1(this, true).setVisible(true);
     }//GEN-LAST:event_MenuItemErrorAmpT1ActionPerformed
 
-    private void MenuItemErrorAmpT2LCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemErrorAmpT2LCActionPerformed
-        new ErrorAmpT2LC(this, true).setVisible(true);
-    }//GEN-LAST:event_MenuItemErrorAmpT2LCActionPerformed
-
     private void MenuItemBuckConverterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemBuckConverterActionPerformed
-       new BuckConverter(this, true).setVisible(true);
+        new BuckConverter(this, true).setVisible(true);
     }//GEN-LAST:event_MenuItemBuckConverterActionPerformed
-    
+
+    private void MenuItemErrorAmpT2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemErrorAmpT2ActionPerformed
+        new ErrorAmpT2(this, true).setVisible(true);
+    }//GEN-LAST:event_MenuItemErrorAmpT2ActionPerformed
+
     public static void main(String args[]) {
-      
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -114,7 +105,7 @@ public class FrameMain extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrameMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-       
+
         java.awt.EventQueue.invokeLater(() -> {
             new FrameMain().setVisible(true);
         });
@@ -123,12 +114,10 @@ public class FrameMain extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar MainMenuBar;
     private javax.swing.JMenu MenuErrorAmp;
-    private javax.swing.JMenu MenuErrorAmpT2;
     private javax.swing.JMenu MenuIsolate;
     private javax.swing.JMenuItem MenuItemBuckConverter;
     private javax.swing.JMenuItem MenuItemErrorAmpT1;
-    private javax.swing.JMenuItem MenuItemErrorAmpT2LC;
-    private javax.swing.JMenuItem MenuItemErrorAmpT2RC;
+    private javax.swing.JMenuItem MenuItemErrorAmpT2;
     private javax.swing.JMenu MenuNonIsolate;
     private javax.swing.JMenu MenuTopology;
     // End of variables declaration//GEN-END:variables

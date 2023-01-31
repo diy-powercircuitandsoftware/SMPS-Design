@@ -4,13 +4,13 @@ import Convert.Measurement;
 import UI.ComboBox.ComboItem;
 import javax.swing.DefaultComboBoxModel;
 
-public class ErrorAmpT2LC extends javax.swing.JDialog {
-
-    public ErrorAmpT2LC(java.awt.Frame parent, boolean modal) {
+public class ErrorAmpT2 extends javax.swing.JDialog {
+    
+    public ErrorAmpT2(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -39,6 +39,7 @@ public class ErrorAmpT2LC extends javax.swing.JDialog {
         BNCalculator = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("ErrorAmpType2");
 
         LabelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/ErrorAmp/error_amp_02.png"))); // NOI18N
 
@@ -46,7 +47,7 @@ public class ErrorAmpT2LC extends javax.swing.JDialog {
 
         SpinnerSF.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
 
-        ComboSFUnit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem(1000, "k"), new ComboItem(1000000, "M")}));
+        ComboSFUnit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem("k","1000"), new ComboItem("M","1000000")}));
 
         LabelVCC.setText("VCC:");
 
@@ -62,11 +63,11 @@ public class ErrorAmpT2LC extends javax.swing.JDialog {
 
         SpinnerLO.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
 
-        ComboLOUnit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem(1, "-"), new ComboItem(1000, "m"),new ComboItem(1000000, "u")}));
+        ComboLOUnit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem("-","1"), new ComboItem("m","0.001"),new ComboItem("u","0.000001")}));
 
         SpinnerCO.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.1f), Float.valueOf(0.1f), Float.valueOf(10000.0f), Float.valueOf(1.0f)));
 
-        ComboCOUnit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem(1, "-"), new ComboItem(1000000, "u")}));
+        ComboCOUnit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem("-","1"), new ComboItem("m","0.001"),new ComboItem("u","0.000001")}));
 
         LabelCESR.setText("C ESR(Output):");
 
@@ -76,7 +77,7 @@ public class ErrorAmpT2LC extends javax.swing.JDialog {
 
         SpinnerRF.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
 
-        ComboRFUnit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem(1, "-"),new ComboItem(1000, "k"), new ComboItem(1000000, "M")}));
+        ComboRFUnit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem( "-","1"),new ComboItem("k","1000"), new ComboItem("M","1000000")}));
 
         TextAreaOutput.setEditable(false);
         TextAreaOutput.setColumns(20);
@@ -190,11 +191,11 @@ public class ErrorAmpT2LC extends javax.swing.JDialog {
         Measurement m = new Measurement();
         double vcc = Double.valueOf(SpinnerVCC.getValue().toString());
         double vsawtooth = Double.valueOf(SpinnerVSaw.getValue().toString());
-        double swfeq = Double.valueOf(SpinnerSF.getValue().toString()) * Double.valueOf(((ComboItem) ComboSFUnit.getSelectedItem()).key);
-        double lo = Double.valueOf(SpinnerLO.getValue().toString()) * (1 / Double.valueOf(((ComboItem) ComboLOUnit.getSelectedItem()).key));
-        double co = Double.valueOf(SpinnerCO.getValue().toString()) * (1 / Double.valueOf(((ComboItem) ComboCOUnit.getSelectedItem()).key));
+        double swfeq = Double.valueOf(SpinnerSF.getValue().toString()) * Double.valueOf(((ComboItem) ComboSFUnit.getSelectedItem()).value);
+        double lo = Double.valueOf(SpinnerLO.getValue().toString()) * (Double.valueOf(((ComboItem) ComboLOUnit.getSelectedItem()).value));
+        double co = Double.valueOf(SpinnerCO.getValue().toString()) * (Double.valueOf(((ComboItem) ComboCOUnit.getSelectedItem()).value));
         double cesr = Double.valueOf(SpinnerCESR.getValue().toString());
-        double rfeedback = Double.valueOf(SpinnerRF.getValue().toString()) * (Double.valueOf(((ComboItem) ComboRFUnit.getSelectedItem()).key));
+        double rfeedback = Double.valueOf(SpinnerRF.getValue().toString()) * (Double.valueOf(((ComboItem) ComboRFUnit.getSelectedItem()).value));
         double flc = 1 / (2 * Math.PI * Math.sqrt(lo * co));
         double fesr = 1 / (2 * Math.PI * cesr * co);
         double fo = swfeq / 10;
@@ -203,7 +204,7 @@ public class ErrorAmpT2LC extends javax.swing.JDialog {
         double r1 = (rfeedback * fesr * vsawtooth * fo) / (vcc * Math.pow(flc, 2));
         double c1 = 1 / (2 * Math.PI * r1 * fzero);
         double c2 = 1 / (2 * Math.PI * r1 * fpole);
-     
+        TextAreaOutput.setText("");
         TextAreaOutput.append("CrossOver=" + m.Convert(fo) + "hz\n");
         TextAreaOutput.append("Pole=" + m.Convert(fpole) + "hz\n");
         TextAreaOutput.append("Low Pass LC=" + m.Convert(flc) + "hz\n");
@@ -212,7 +213,7 @@ public class ErrorAmpT2LC extends javax.swing.JDialog {
         TextAreaOutput.append("R1=" + m.Convert(r1) + "ohm\n");
         TextAreaOutput.append("C1=" + m.Convert(c1) + "f\n");
         TextAreaOutput.append("C2=" + m.Convert(c2) + "f\n");
-        TextAreaOutput.append("flc<<fesr<<fo<<fpole="+String.valueOf((flc < fesr) && (fesr < fo) && (fo < fpole)));
+        TextAreaOutput.append("flc<<fesr<<fo<<fpole=" + String.valueOf((flc < fesr) && (fesr < fo) && (fo < fpole)));
         
     }//GEN-LAST:event_BNCalculatorActionPerformed
 

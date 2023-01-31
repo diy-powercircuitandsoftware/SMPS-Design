@@ -44,26 +44,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemErrorAmpT1ActionPerformed"/>
               </Events>
             </MenuItem>
-            <Menu class="javax.swing.JMenu" name="MenuErrorAmpT2">
+            <MenuItem class="javax.swing.JMenuItem" name="MenuItemErrorAmpT2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Type2"/>
               </Properties>
-              <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="MenuItemErrorAmpT2LC">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="VoltageFeedBack"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemErrorAmpT2LCActionPerformed"/>
-                  </Events>
-                </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="MenuItemErrorAmpT2RC">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="CurrentFeedBack"/>
-                  </Properties>
-                </MenuItem>
-              </SubComponents>
-            </Menu>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemErrorAmpT2ActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>

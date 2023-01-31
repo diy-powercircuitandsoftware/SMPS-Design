@@ -38,7 +38,7 @@ public class ErrorAmpT1 extends javax.swing.JDialog {
 
         SpinnerSF.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
 
-        ComboSFUnit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem(1000, "k"), new ComboItem(1000000, "M")}));
+        ComboSFUnit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem("k","1000"), new ComboItem("M","1000000")}));
 
         BNCalculator.setText("Calculator");
         BNCalculator.addActionListener(new java.awt.event.ActionListener() {
@@ -56,7 +56,7 @@ public class ErrorAmpT1 extends javax.swing.JDialog {
 
         SpinnerR1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
 
-        ComboR1Unit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem(1, "-"),new ComboItem(1000, "k"), new ComboItem(1000000, "M")}));
+        ComboR1Unit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem( "-","1"),new ComboItem("k","1000"), new ComboItem("M","1000000")}));
 
         LabelC1.setText("C1:");
 
@@ -125,9 +125,9 @@ public class ErrorAmpT1 extends javax.swing.JDialog {
 
     private void BNCalculatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BNCalculatorActionPerformed
         Measurement m = new Measurement();
-        double swfeq = Double.valueOf(SpinnerSF.getValue().toString()) * Double.valueOf(((ComboItem) ComboSFUnit.getSelectedItem()).key);
+        double swfeq = Double.valueOf(SpinnerSF.getValue().toString()) * Double.valueOf(((ComboItem) ComboSFUnit.getSelectedItem()).value);
         double crossover = swfeq / Double.valueOf(ComboCrossOver.getSelectedItem().toString());
-        double r = Double.valueOf(SpinnerR1.getValue().toString()) * Double.valueOf(((ComboItem) ComboR1Unit.getSelectedItem()).key);
+        double r = Double.valueOf(SpinnerR1.getValue().toString()) * Double.valueOf(((ComboItem) ComboR1Unit.getSelectedItem()).value);
         double c = 1 / (2 * Math.PI * crossover * r);
         LabelC1Output.setText(m.Convert(c) + "f");
     }//GEN-LAST:event_BNCalculatorActionPerformed
