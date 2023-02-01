@@ -6,11 +6,11 @@ import UI.ComboBox.ComboSI;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-public class ErrorAmpT2 extends javax.swing.JDialog {
+public class ErrorAmpT3A extends javax.swing.JDialog {
 
     float RZoomBP = 1;
 
-    public ErrorAmpT2(java.awt.Frame parent, boolean modal) {
+    public ErrorAmpT3A(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -21,7 +21,7 @@ public class ErrorAmpT2 extends javax.swing.JDialog {
 
         LabelIcon = new javax.swing.JLabel();
         PanelInput = new javax.swing.JPanel();
-        SpinnerR1 = new javax.swing.JSpinner();
+        SpinnerC1 = new javax.swing.JSpinner();
         SpinnerVSaw = new javax.swing.JSpinner();
         ComboRFUnit = new javax.swing.JComboBox<>();
         LabelLO = new javax.swing.JLabel();
@@ -37,7 +37,7 @@ public class ErrorAmpT2 extends javax.swing.JDialog {
         LabelVCC = new javax.swing.JLabel();
         SpinnerCESR = new javax.swing.JSpinner();
         SpinnerVCC = new javax.swing.JSpinner();
-        LabelR1 = new javax.swing.JLabel();
+        LabelC1 = new javax.swing.JLabel();
         LabelVSaw = new javax.swing.JLabel();
         ScrollPaneOutput = new javax.swing.JScrollPane();
         TextAreaOutput = new javax.swing.JTextArea();
@@ -50,18 +50,18 @@ public class ErrorAmpT2 extends javax.swing.JDialog {
         BNZoomOutBP = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("ErrorAmpType2");
+        setTitle("ErrorAmpType3A");
         setResizable(false);
 
-        LabelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/ErrorAmp/error_amp_02.png"))); // NOI18N
+        LabelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/ErrorAmp/error_amp_03.png"))); // NOI18N
 
         PanelInput.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        SpinnerR1.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(1.0f), Float.valueOf(1.0f), Float.valueOf(999.0f), Float.valueOf(0.01f)));
+        SpinnerC1.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.1f), Float.valueOf(0.1f), Float.valueOf(1000.0f), Float.valueOf(0.1f)));
 
         SpinnerVSaw.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.7f), Float.valueOf(0.7f), Float.valueOf(999.0f), Float.valueOf(0.1f)));
 
-        ComboRFUnit.setModel(ComboSI.Resistor);
+        ComboRFUnit.setModel(ComboSI.CapacitorNonPolar);
 
         LabelLO.setText("L(Output):");
 
@@ -89,7 +89,7 @@ public class ErrorAmpT2 extends javax.swing.JDialog {
 
         SpinnerVCC.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
 
-        LabelR1.setText("R1:");
+        LabelC1.setText("C1:");
 
         LabelVSaw.setText("VSawtooth(Max):");
 
@@ -106,11 +106,11 @@ public class ErrorAmpT2 extends javax.swing.JDialog {
                     .addComponent(LabelVCC)
                     .addComponent(LabelCO)
                     .addComponent(LabelCESR)
-                    .addComponent(LabelR1))
+                    .addComponent(LabelC1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PanelInputLayout.createSequentialGroup()
-                        .addComponent(SpinnerR1)
+                        .addComponent(SpinnerC1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ComboRFUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(SpinnerVCC)
@@ -164,9 +164,9 @@ public class ErrorAmpT2 extends javax.swing.JDialog {
                     .addComponent(SpinnerCESR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SpinnerR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SpinnerC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboRFUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelR1))
+                    .addComponent(LabelC1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -176,7 +176,7 @@ public class ErrorAmpT2 extends javax.swing.JDialog {
         TextAreaOutput.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         ScrollPaneOutput.setViewportView(TextAreaOutput);
 
-        LabelBP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/ErrorAmp/bode_plot_error_amp_02.png"))); // NOI18N
+        LabelBP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/ErrorAmp/bode_plot_error_amp_03.png"))); // NOI18N
         ScrollPaneBP.setViewportView(LabelBP);
 
         PanelCaculator.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -244,25 +244,21 @@ public class ErrorAmpT2 extends javax.swing.JDialog {
                         .addComponent(PanelInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(PanelCaculator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(LabelIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LabelIcon))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ScrollPaneOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 397, Short.MAX_VALUE)
-                    .addComponent(ScrollPaneBP, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ScrollPaneBP, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(ScrollPaneOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(LabelIcon)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ScrollPaneBP, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addComponent(LabelIcon)
+                    .addComponent(ScrollPaneBP, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(PanelInput, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(PanelCaculator, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -281,7 +277,7 @@ public class ErrorAmpT2 extends javax.swing.JDialog {
         double lo = Double.valueOf(SpinnerLO.getValue().toString()) * (Double.valueOf(((ComboItem) ComboLOUnit.getSelectedItem()).value));
         double co = Double.valueOf(SpinnerCO.getValue().toString()) * (Double.valueOf(((ComboItem) ComboCOUnit.getSelectedItem()).value));
         double cesr = Double.valueOf(SpinnerCESR.getValue().toString());
-        double rfeedback = Double.valueOf(SpinnerR1.getValue().toString()) * (Double.valueOf(((ComboItem) ComboRFUnit.getSelectedItem()).value));
+        double rfeedback = Double.valueOf(SpinnerC1.getValue().toString()) * (Double.valueOf(((ComboItem) ComboRFUnit.getSelectedItem()).value));
         double flc = 1 / (2 * Math.PI * Math.sqrt(lo * co));
         double fesr = 1 / (2 * Math.PI * cesr * co);
         double fo = swfeq / 10;
@@ -316,9 +312,9 @@ public class ErrorAmpT2 extends javax.swing.JDialog {
         ZoomBP();
     }//GEN-LAST:event_BNZoomOutBPActionPerformed
     private void ZoomBP() {
-        ImageIcon myImage = new ImageIcon(getClass().getResource("/UI/ErrorAmp/bode_plot_error_amp_02.png"));
-        int w = (int) (myImage.getIconWidth()* RZoomBP);
-        int h = (int) (myImage.getIconHeight()* RZoomBP);
+        ImageIcon myImage = new ImageIcon(getClass().getResource("/UI/ErrorAmp/bode_plot_error_amp_03.png"));
+        int w = (int) (myImage.getIconWidth() * RZoomBP);
+        int h = (int) (myImage.getIconHeight() * RZoomBP);
         if (w == 0 || h == 0) {
             return;
         }
@@ -337,11 +333,11 @@ public class ErrorAmpT2 extends javax.swing.JDialog {
     private javax.swing.JComboBox<ComboItem> ComboRFUnit;
     private javax.swing.JComboBox<ComboItem> ComboSFUnit;
     private javax.swing.JLabel LabelBP;
+    private javax.swing.JLabel LabelC1;
     private javax.swing.JLabel LabelCESR;
     private javax.swing.JLabel LabelCO;
     private javax.swing.JLabel LabelIcon;
     private javax.swing.JLabel LabelLO;
-    private javax.swing.JLabel LabelR1;
     private javax.swing.JLabel LabelSF;
     private javax.swing.JLabel LabelVCC;
     private javax.swing.JLabel LabelVSaw;
@@ -350,10 +346,10 @@ public class ErrorAmpT2 extends javax.swing.JDialog {
     private javax.swing.JPanel PanelInput;
     private javax.swing.JScrollPane ScrollPaneBP;
     private javax.swing.JScrollPane ScrollPaneOutput;
+    private javax.swing.JSpinner SpinnerC1;
     private javax.swing.JSpinner SpinnerCESR;
     private javax.swing.JSpinner SpinnerCO;
     private javax.swing.JSpinner SpinnerLO;
-    private javax.swing.JSpinner SpinnerR1;
     private javax.swing.JSpinner SpinnerSF;
     private javax.swing.JSpinner SpinnerVCC;
     private javax.swing.JSpinner SpinnerVSaw;

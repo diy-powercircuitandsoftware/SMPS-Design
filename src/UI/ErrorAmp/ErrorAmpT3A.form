@@ -3,7 +3,7 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="ErrorAmpType2"/>
+    <Property name="title" type="java.lang.String" value="ErrorAmpType3A"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -33,32 +33,26 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="PanelCaculator" max="32767" attributes="0"/>
                   </Group>
-                  <Component id="LabelIcon" min="-2" pref="500" max="-2" attributes="0"/>
+                  <Component id="LabelIcon" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="ScrollPaneOutput" pref="397" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="ScrollPaneBP" pref="0" max="32767" attributes="0"/>
+                  <Component id="ScrollPaneOutput" pref="416" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="12" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="LabelIcon" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="ScrollPaneBP" min="-2" pref="285" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="LabelIcon" min="-2" max="-2" attributes="0"/>
+                  <Component id="ScrollPaneBP" min="-2" pref="285" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="PanelInput" max="32767" attributes="0"/>
                   <Component id="PanelCaculator" max="32767" attributes="0"/>
@@ -73,7 +67,7 @@
     <Component class="javax.swing.JLabel" name="LabelIcon">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/UI/ErrorAmp/error_amp_02.png"/>
+          <Image iconType="3" name="/UI/ErrorAmp/error_amp_03.png"/>
         </Property>
       </Properties>
     </Component>
@@ -98,12 +92,12 @@
                       <Component id="LabelVCC" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="LabelCO" min="-2" max="-2" attributes="0"/>
                       <Component id="LabelCESR" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="LabelR1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="LabelC1" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="SpinnerR1" max="32767" attributes="0"/>
+                          <Component id="SpinnerC1" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="ComboRFUnit" min="-2" pref="107" max="-2" attributes="0"/>
                       </Group>
@@ -173,9 +167,9 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="SpinnerR1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="SpinnerC1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="ComboRFUnit" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="LabelR1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="LabelC1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -183,10 +177,10 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JSpinner" name="SpinnerR1">
+        <Component class="javax.swing.JSpinner" name="SpinnerC1">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-              <SpinnerModel initial="1.0" maximum="999.0" minimum="1.0" numberType="java.lang.Float" stepSize="0.01" type="number"/>
+              <SpinnerModel initial="0.1" maximum="1000.0" minimum="0.1" numberType="java.lang.Float" stepSize="0.1" type="number"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -206,7 +200,7 @@
         <Component class="javax.swing.JComboBox" name="ComboRFUnit">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="ComboSI.Resistor" type="code"/>
+              <Connection code="ComboSI.CapacitorNonPolar" type="code"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -318,9 +312,9 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="LabelR1">
+        <Component class="javax.swing.JLabel" name="LabelC1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="R1:"/>
+            <Property name="text" type="java.lang.String" value="C1:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="LabelVSaw">
@@ -358,7 +352,7 @@
         <Component class="javax.swing.JLabel" name="LabelBP">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/UI/ErrorAmp/bode_plot_error_amp_02.png"/>
+              <Image iconType="3" name="/UI/ErrorAmp/bode_plot_error_amp_03.png"/>
             </Property>
           </Properties>
         </Component>

@@ -1,8 +1,8 @@
 package UI.ErrorAmp;
 
 import UI.ComboBox.ComboItem;
-import javax.swing.DefaultComboBoxModel;
 import Convert.Measurement;
+import UI.ComboBox.ComboSI;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -50,7 +50,7 @@ public class ErrorAmpT1 extends javax.swing.JDialog {
 
         SpinnerSF.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
 
-        ComboSFUnit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem("k","1000"), new ComboItem("M","1000000")}));
+        ComboSFUnit.setModel(ComboSI.Frequency);
 
         LabelCrossOver.setText("CrossOver Frequency:");
 
@@ -61,7 +61,7 @@ public class ErrorAmpT1 extends javax.swing.JDialog {
 
         SpinnerR1.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(1.0f), Float.valueOf(1.0f), Float.valueOf(999.0f), Float.valueOf(0.01f)));
 
-        ComboR1Unit.setModel(new DefaultComboBoxModel(new ComboItem[] {new ComboItem( "-","1"),new ComboItem("k","1000"), new ComboItem("M","1000000")}));
+        ComboR1Unit.setModel(ComboSI.Resistor);
 
         LabelSF.setText("Switching Frequency:");
 
@@ -77,16 +77,18 @@ public class ErrorAmpT1 extends javax.swing.JDialog {
                     .addComponent(LabelR1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelInputLayout.createSequentialGroup()
-                        .addComponent(SpinnerSF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ComboSFUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(ComboCrossOver, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(PanelInputLayout.createSequentialGroup()
-                        .addComponent(SpinnerR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ComboR1Unit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ComboCrossOver, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(PanelInputLayout.createSequentialGroup()
+                            .addComponent(SpinnerSF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(ComboSFUnit, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(PanelInputLayout.createSequentialGroup()
+                            .addComponent(SpinnerR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(ComboR1Unit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(0, 0, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         PanelInputLayout.setVerticalGroup(
             PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

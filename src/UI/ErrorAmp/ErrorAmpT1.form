@@ -91,19 +91,20 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="ComboCrossOver" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="SpinnerSF" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ComboSFUnit" min="-2" max="-2" attributes="0"/>
+                          <Component id="ComboSFUnit" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="ComboCrossOver" min="-2" pref="145" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="SpinnerR1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="ComboR1Unit" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -146,7 +147,7 @@
         <Component class="javax.swing.JComboBox" name="ComboSFUnit">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new DefaultComboBoxModel(new ComboItem[] {new ComboItem(&quot;k&quot;,&quot;1000&quot;), new ComboItem(&quot;M&quot;,&quot;1000000&quot;)})" type="code"/>
+              <Connection code="ComboSI.Frequency" type="code"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -184,7 +185,7 @@
         <Component class="javax.swing.JComboBox" name="ComboR1Unit">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new DefaultComboBoxModel(new ComboItem[] {new ComboItem( &quot;-&quot;,&quot;1&quot;),new ComboItem(&quot;k&quot;,&quot;1000&quot;), new ComboItem(&quot;M&quot;,&quot;1000000&quot;)})" type="code"/>
+              <Connection code="ComboSI.Resistor" type="code"/>
             </Property>
           </Properties>
           <AuxValues>

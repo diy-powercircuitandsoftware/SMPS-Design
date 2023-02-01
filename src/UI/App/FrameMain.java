@@ -2,6 +2,7 @@ package UI.App;
 
 import UI.ErrorAmp.ErrorAmpT1;
 import UI.ErrorAmp.ErrorAmpT2;
+import UI.ErrorAmp.ErrorAmpT3A;
 import UI.Topology.NonIsolate.BuckConverter;
 
 public class FrameMain extends javax.swing.JFrame {
@@ -22,6 +23,9 @@ public class FrameMain extends javax.swing.JFrame {
         MenuErrorAmp = new javax.swing.JMenu();
         MenuItemErrorAmpT1 = new javax.swing.JMenuItem();
         MenuItemErrorAmpT2 = new javax.swing.JMenuItem();
+        ErrorAmpT3 = new javax.swing.JMenu();
+        MenuItemErrorAmpT3A = new javax.swing.JMenuItem();
+        MenuItemErrorAmpT3B = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main");
@@ -63,6 +67,21 @@ public class FrameMain extends javax.swing.JFrame {
         });
         MenuErrorAmp.add(MenuItemErrorAmpT2);
 
+        ErrorAmpT3.setText("Type3");
+
+        MenuItemErrorAmpT3A.setText("A");
+        MenuItemErrorAmpT3A.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemErrorAmpT3AActionPerformed(evt);
+            }
+        });
+        ErrorAmpT3.add(MenuItemErrorAmpT3A);
+
+        MenuItemErrorAmpT3B.setText("B");
+        ErrorAmpT3.add(MenuItemErrorAmpT3B);
+
+        MenuErrorAmp.add(ErrorAmpT3);
+
         MainMenuBar.add(MenuErrorAmp);
 
         setJMenuBar(MainMenuBar);
@@ -93,6 +112,10 @@ public class FrameMain extends javax.swing.JFrame {
         new ErrorAmpT2(this, true).setVisible(true);
     }//GEN-LAST:event_MenuItemErrorAmpT2ActionPerformed
 
+    private void MenuItemErrorAmpT3AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemErrorAmpT3AActionPerformed
+        new ErrorAmpT3A(this, true).setVisible(true);
+    }//GEN-LAST:event_MenuItemErrorAmpT3AActionPerformed
+
     public static void main(String args[]) {
 
         try {
@@ -112,12 +135,15 @@ public class FrameMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu ErrorAmpT3;
     private javax.swing.JMenuBar MainMenuBar;
     private javax.swing.JMenu MenuErrorAmp;
     private javax.swing.JMenu MenuIsolate;
     private javax.swing.JMenuItem MenuItemBuckConverter;
     private javax.swing.JMenuItem MenuItemErrorAmpT1;
     private javax.swing.JMenuItem MenuItemErrorAmpT2;
+    private javax.swing.JMenuItem MenuItemErrorAmpT3A;
+    private javax.swing.JMenuItem MenuItemErrorAmpT3B;
     private javax.swing.JMenu MenuNonIsolate;
     private javax.swing.JMenu MenuTopology;
     // End of variables declaration//GEN-END:variables
