@@ -23,7 +23,7 @@ public class ErrorAmpT3A extends javax.swing.JDialog {
         PanelInput = new javax.swing.JPanel();
         SpinnerC1 = new javax.swing.JSpinner();
         SpinnerVSaw = new javax.swing.JSpinner();
-        ComboRFUnit = new javax.swing.JComboBox<>();
+        ComboC1Unit = new javax.swing.JComboBox<>();
         LabelLO = new javax.swing.JLabel();
         LabelCO = new javax.swing.JLabel();
         SpinnerLO = new javax.swing.JSpinner();
@@ -61,7 +61,7 @@ public class ErrorAmpT3A extends javax.swing.JDialog {
 
         SpinnerVSaw.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.7f), Float.valueOf(0.7f), Float.valueOf(999.0f), Float.valueOf(0.1f)));
 
-        ComboRFUnit.setModel(ComboSI.CapacitorNonPolar);
+        ComboC1Unit.setModel(ComboSI.CapacitorNonPolar);
 
         LabelLO.setText("L(Output):");
 
@@ -85,7 +85,7 @@ public class ErrorAmpT3A extends javax.swing.JDialog {
 
         LabelVCC.setText("VCC:");
 
-        SpinnerCESR.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.01f), Float.valueOf(0.01f), Float.valueOf(10.0f), Float.valueOf(0.01f)));
+        SpinnerCESR.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.001f), Float.valueOf(0.001f), Float.valueOf(10.0f), Float.valueOf(0.001f)));
 
         SpinnerVCC.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
 
@@ -112,7 +112,7 @@ public class ErrorAmpT3A extends javax.swing.JDialog {
                     .addGroup(PanelInputLayout.createSequentialGroup()
                         .addComponent(SpinnerC1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ComboRFUnit, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(ComboC1Unit, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(SpinnerVCC)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInputLayout.createSequentialGroup()
                         .addComponent(SpinnerSF)
@@ -165,7 +165,7 @@ public class ErrorAmpT3A extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SpinnerC1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboRFUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ComboC1Unit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelC1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -277,25 +277,32 @@ public class ErrorAmpT3A extends javax.swing.JDialog {
         double lo = Double.valueOf(SpinnerLO.getValue().toString()) * (Double.valueOf(((ComboItem) ComboLOUnit.getSelectedItem()).value));
         double co = Double.valueOf(SpinnerCO.getValue().toString()) * (Double.valueOf(((ComboItem) ComboCOUnit.getSelectedItem()).value));
         double cesr = Double.valueOf(SpinnerCESR.getValue().toString());
-        double rfeedback = Double.valueOf(SpinnerC1.getValue().toString()) * (Double.valueOf(((ComboItem) ComboRFUnit.getSelectedItem()).value));
+        double c1 = Double.valueOf(SpinnerC1.getValue().toString()) * (Double.valueOf(((ComboItem) ComboC1Unit.getSelectedItem()).value));
         double flc = 1 / (2 * Math.PI * Math.sqrt(lo * co));
         double fesr = 1 / (2 * Math.PI * cesr * co);
-        double fo = swfeq / 10;
-        double fzero = 0.75 * flc;
-        double fpole = swfeq / 2;
-        double r2 = (rfeedback * fesr * vsawtooth * fo) / (vcc * Math.pow(flc, 2));
-        double c1 = 1 / (2 * Math.PI * r2 * fpole);
-        double c2 = 1 / (2 * Math.PI * r2 * fzero);
+        double fo = swfeq / 8;
+        double fzero1 = 0.75 * flc;
+        double fpole3 = swfeq / 2;
+        double r1 = 1 / (2 * Math.PI * c1 * fesr);
+        double r2 = (1 / (2 * Math.PI * c1 * flc)) - r1;
+        double r3 = (2 * Math.PI * fo * lo * co * vsawtooth) / (vcc * c1);
+        double c3 = 1 / (2 * Math.PI * r3 * fzero1);
+        double c2 = 1 / (2 * Math.PI * r3 * fpole3);
+
         TextAreaOutput.setText("");
-        TextAreaOutput.append("Cross Over(fsw/10)=" + m.Convert(fo) + "hz\n");
-        TextAreaOutput.append("Pole(fsw/2)=" + m.Convert(fpole) + "hz\n");
+        TextAreaOutput.append("Cross Over(fsw/8)=" + m.Convert(fo) + "hz\n");
         TextAreaOutput.append("Low Pass LC=" + m.Convert(flc) + "hz\n");
         TextAreaOutput.append("Low Pass ESR=" + m.Convert(fesr) + "hz\n");
-        TextAreaOutput.append("Zero(75% Low Pass LC)=" + m.Convert(fzero) + "hz\n");
-        TextAreaOutput.append("R1=" + m.Convert(r2) + "ohm\n");
-        TextAreaOutput.append("C1=" + m.Convert(c1) + "f\n");
+        TextAreaOutput.append("Zero1(75% Low Pass LC)=" + m.Convert(fzero1) + "hz\n");
+        TextAreaOutput.append("Zero2(Low Pass LC)=" + m.Convert(flc) + "hz\n");
+        TextAreaOutput.append("Pole2(Low Pass ESR)=" + m.Convert(fesr) + "hz\n");
+        TextAreaOutput.append("Pole3(fsw/2)=" + m.Convert(fpole3) + "hz\n");
+        TextAreaOutput.append("R1=" + m.Convert(r1) + "ohm\n");
+        TextAreaOutput.append("R2=" + m.Convert(r2) + "ohm\n");
+        TextAreaOutput.append("R3=" + m.Convert(r3) + "ohm\n");
         TextAreaOutput.append("C2=" + m.Convert(c2) + "f\n");
-        TextAreaOutput.append("Low Pass LC<<Low Pass ESR<<Zero<<Pole=" + String.valueOf((flc < fesr) && (fesr < fo) && (fo < fpole)));
+        TextAreaOutput.append("C3=" + m.Convert(c3) + "f\n");
+        TextAreaOutput.append("Low Pass LC<<Zero<<Low Pass ESR<<<<Pole=" + String.valueOf((flc < fo) && (fo < fesr) && (fesr < fpole3)));
 
     }//GEN-LAST:event_BNCalculatorActionPerformed
 
@@ -328,9 +335,9 @@ public class ErrorAmpT3A extends javax.swing.JDialog {
     private javax.swing.JButton BNCalculator;
     private javax.swing.JButton BNZoomInBP;
     private javax.swing.JButton BNZoomOutBP;
+    private javax.swing.JComboBox<ComboItem> ComboC1Unit;
     private javax.swing.JComboBox<ComboItem> ComboCOUnit;
     private javax.swing.JComboBox<ComboItem> ComboLOUnit;
-    private javax.swing.JComboBox<ComboItem> ComboRFUnit;
     private javax.swing.JComboBox<ComboItem> ComboSFUnit;
     private javax.swing.JLabel LabelBP;
     private javax.swing.JLabel LabelC1;

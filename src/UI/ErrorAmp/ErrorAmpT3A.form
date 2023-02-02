@@ -99,7 +99,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="SpinnerC1" max="32767" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="ComboRFUnit" min="-2" pref="107" max="-2" attributes="0"/>
+                          <Component id="ComboC1Unit" min="-2" pref="107" max="-2" attributes="0"/>
                       </Group>
                       <Component id="SpinnerVCC" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
@@ -168,7 +168,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="SpinnerC1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="ComboRFUnit" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="ComboC1Unit" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="LabelC1" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -197,7 +197,7 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JComboBox" name="ComboRFUnit">
+        <Component class="javax.swing.JComboBox" name="ComboC1Unit">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
               <Connection code="ComboSI.CapacitorNonPolar" type="code"/>
@@ -295,7 +295,7 @@
         <Component class="javax.swing.JSpinner" name="SpinnerCESR">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-              <SpinnerModel initial="0.01" maximum="10.0" minimum="0.01" numberType="java.lang.Float" stepSize="0.01" type="number"/>
+              <SpinnerModel initial="0.001" maximum="10.0" minimum="0.001" numberType="java.lang.Float" stepSize="0.001" type="number"/>
             </Property>
           </Properties>
           <AuxValues>

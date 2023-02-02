@@ -23,7 +23,7 @@ public class Measurement {
         if (tval == 0) {
             return "0";
         }
-        while (tval >= 1000.0) {
+        while (tval > 1000.0) {
             tval /= 1000.0;
             order += 3;
         }
