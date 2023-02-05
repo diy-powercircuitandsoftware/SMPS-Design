@@ -59,6 +59,11 @@ public class FrameMain extends javax.swing.JFrame {
         MenuCurrentResistor.setText("Resistor");
 
         MenuItemHighSideResistor.setText("High Side");
+        MenuItemHighSideResistor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemHighSideResistorActionPerformed(evt);
+            }
+        });
         MenuCurrentResistor.add(MenuItemHighSideResistor);
 
         MenuItemLowSideResistor.setText("Low Side");
@@ -165,6 +170,10 @@ public class FrameMain extends javax.swing.JFrame {
     private void MenuItemLowSideResistorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemLowSideResistorActionPerformed
         new UI.Feedback.Current.Resistor.CurrentLowSideResistor(this, true).setVisible(true);
     }//GEN-LAST:event_MenuItemLowSideResistorActionPerformed
+
+    private void MenuItemHighSideResistorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemHighSideResistorActionPerformed
+          new UI.Feedback.Current.Resistor.CurrentHighSideResistor(this, true).setVisible(true);
+    }//GEN-LAST:event_MenuItemHighSideResistorActionPerformed
 
     public static void main(String args[]) {
 

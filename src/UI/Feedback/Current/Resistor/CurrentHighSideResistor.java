@@ -17,14 +17,11 @@ public class CurrentHighSideResistor extends javax.swing.JDialog {
 
         LabelIcon = new javax.swing.JLabel();
         PanelInput = new javax.swing.JPanel();
-        LabelCurrent = new javax.swing.JLabel();
         LabelShunt = new javax.swing.JLabel();
         BNCalculator = new javax.swing.JButton();
         SpinnerVout = new javax.swing.JSpinner();
         ComboVoutUnit = new javax.swing.JComboBox<>();
         LabelVout = new javax.swing.JLabel();
-        SpinnerCurrent = new javax.swing.JSpinner();
-        ComboCurrentUnit = new javax.swing.JComboBox<>();
         SpinnerVShunt = new javax.swing.JSpinner();
         ComboVShuntUnit = new javax.swing.JComboBox<>();
         LabelRBValue = new javax.swing.JLabel();
@@ -36,15 +33,17 @@ public class CurrentHighSideResistor extends javax.swing.JDialog {
         LabelRSValue = new javax.swing.JLabel();
         LabelPRS = new javax.swing.JLabel();
         LabelPRSValue = new javax.swing.JLabel();
+        LabelCurrent = new javax.swing.JLabel();
+        ComboCurrentUnit = new javax.swing.JComboBox<>();
+        SpinnerCurrent = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Low Side Curent Amplifier");
+        setTitle("High Side Curent Amplifier");
+        setResizable(false);
 
         LabelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Feedback/Current/Resistor/HighSide.png"))); // NOI18N
 
         PanelInput.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        LabelCurrent.setText("Current:");
 
         LabelShunt.setText("VShunt:");
 
@@ -60,10 +59,6 @@ public class CurrentHighSideResistor extends javax.swing.JDialog {
         ComboVoutUnit.setModel(ComboSI.Resistor());
 
         LabelVout.setText("VOUT:");
-
-        SpinnerCurrent.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.001f), Float.valueOf(0.001f), Float.valueOf(999.0f), Float.valueOf(0.001f)));
-
-        ComboCurrentUnit.setModel(ComboSI.Voltage());
 
         SpinnerVShunt.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.001f), Float.valueOf(0.001f), Float.valueOf(999.0f), Float.valueOf(0.001f)));
 
@@ -87,6 +82,12 @@ public class CurrentHighSideResistor extends javax.swing.JDialog {
 
         LabelPRSValue.setText("-");
 
+        LabelCurrent.setText("Current:");
+
+        ComboCurrentUnit.setModel(ComboSI.Voltage());
+
+        SpinnerCurrent.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.001f), Float.valueOf(0.001f), Float.valueOf(999.0f), Float.valueOf(0.001f)));
+
         javax.swing.GroupLayout PanelInputLayout = new javax.swing.GroupLayout(PanelInput);
         PanelInput.setLayout(PanelInputLayout);
         PanelInputLayout.setHorizontalGroup(
@@ -99,28 +100,30 @@ public class CurrentHighSideResistor extends javax.swing.JDialog {
                         .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelShunt)
                             .addComponent(LabelVout)
-                            .addComponent(LabelCurrent)
                             .addComponent(LabelRA)
                             .addComponent(LabelRB)
                             .addComponent(LabelRS)
-                            .addComponent(LabelPRS))
+                            .addComponent(LabelPRS)
+                            .addComponent(LabelCurrent))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelInputLayout.createSequentialGroup()
-                                .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(SpinnerVout, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(SpinnerVShunt, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
-                                    .addComponent(SpinnerCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(SpinnerRA))
+                                .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(SpinnerVout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                                        .addComponent(SpinnerVShunt, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
+                                        .addComponent(SpinnerRA))
+                                    .addComponent(SpinnerCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(ComboVShuntUnit, javax.swing.GroupLayout.Alignment.LEADING, 0, 100, Short.MAX_VALUE)
                                     .addComponent(ComboVoutUnit, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(ComboRAUnit, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ComboCurrentUnit, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(ComboCurrentUnit, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(LabelPRSValue, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(LabelRSValue, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelRBValue, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(LabelRBValue, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         PanelInputLayout.setVerticalGroup(
@@ -128,9 +131,9 @@ public class CurrentHighSideResistor extends javax.swing.JDialog {
             .addGroup(PanelInputLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SpinnerCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelCurrent)
-                    .addComponent(ComboCurrentUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboCurrentUnit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SpinnerCurrent, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SpinnerVShunt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,7 +163,7 @@ public class CurrentHighSideResistor extends javax.swing.JDialog {
                     .addComponent(LabelPRSValue))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BNCalculator)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -189,14 +192,15 @@ public class CurrentHighSideResistor extends javax.swing.JDialog {
 
     private void BNCalculatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BNCalculatorActionPerformed
         Measurement m = new Measurement();
+
         double current = Double.valueOf(SpinnerCurrent.getValue().toString()) * Double.valueOf(((ComboItem) ComboCurrentUnit.getSelectedItem()).value);
         double vshunt = Double.valueOf(SpinnerVShunt.getValue().toString()) * Double.valueOf(((ComboItem) ComboVShuntUnit.getSelectedItem()).value);
         double rshunt = vshunt / current;
         double pd = vshunt * current;
         double vout = Double.valueOf(SpinnerVout.getValue().toString()) * Double.valueOf(((ComboItem) ComboVoutUnit.getSelectedItem()).value);
         double ra = Double.valueOf(SpinnerRA.getValue().toString()) * Double.valueOf(((ComboItem) ComboRAUnit.getSelectedItem()).value);
-        double diff = (vout / vshunt)  ;
-        double rb = diff * ra;
+        double gain = (vout / vshunt);
+        double rb = gain * ra;
 
         LabelRBValue.setText(m.Convert(rb));
         LabelRSValue.setText(m.Convert(rshunt));

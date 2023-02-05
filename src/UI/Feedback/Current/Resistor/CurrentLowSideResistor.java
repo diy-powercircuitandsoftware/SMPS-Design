@@ -39,6 +39,7 @@ public class CurrentLowSideResistor extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Low Side Curent Amplifier");
+        setResizable(false);
 
         LabelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Feedback/Current/Resistor/LowSide.png"))); // NOI18N
 
