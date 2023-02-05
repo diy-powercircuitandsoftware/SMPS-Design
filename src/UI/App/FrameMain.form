@@ -31,44 +31,100 @@
             </Menu>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="MenuErrorAmp">
+        <Menu class="javax.swing.JMenu" name="MenuFeedback">
           <Properties>
-            <Property name="text" type="java.lang.String" value="ErrorAmp"/>
+            <Property name="text" type="java.lang.String" value="Feedback"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="MenuItemErrorAmpT1">
+            <Menu class="javax.swing.JMenu" name="MenuCurrent">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Type1"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemErrorAmpT1ActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="MenuItemErrorAmpT2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Type2"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemErrorAmpT2ActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <Menu class="javax.swing.JMenu" name="ErrorAmpT3">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Type3"/>
+                <Property name="text" type="java.lang.String" value="Current"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="MenuItemErrorAmpT3A">
+                <Menu class="javax.swing.JMenu" name="MenuCurrentResistor">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="A"/>
+                    <Property name="text" type="java.lang.String" value="Resistor"/>
+                  </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="MenuItemHighSideResistor">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="High Side"/>
+                      </Properties>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="MenuItemLowSideResistor">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Low Side"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemLowSideResistorActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
+              </SubComponents>
+            </Menu>
+            <Menu class="javax.swing.JMenu" name="MenuErrorAmp">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Error Amplifier "/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="MenuItemErrorAmpT1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Type1"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemErrorAmpT3AActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemErrorAmpT1ActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="MenuItemErrorAmpT3B">
+                <MenuItem class="javax.swing.JMenuItem" name="MenuItemErrorAmpT2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="B"/>
+                    <Property name="text" type="java.lang.String" value="Type2"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemErrorAmpT2ActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <Menu class="javax.swing.JMenu" name="ErrorAmpT3">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Type3"/>
+                  </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="MenuItemErrorAmpT3A">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="A"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemErrorAmpT3AActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="MenuItemErrorAmpT3B">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="B"/>
+                      </Properties>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
+        </Menu>
+        <Menu class="javax.swing.JMenu" name="MenuOpamp">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Opamp"/>
+          </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="MenuAmp">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Amplifier "/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="MenuItemNonInvertAmp">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Non Inverting Amplifier"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemNonInvertAmpActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
@@ -106,7 +162,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="277" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="278" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>

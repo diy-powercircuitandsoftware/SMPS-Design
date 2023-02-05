@@ -73,7 +73,7 @@
     <Component class="javax.swing.JLabel" name="LabelIcon">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/UI/ErrorAmp/error_amp_02.png"/>
+          <Image iconType="3" name="/UI/Feedback/ErrorAmplifier/error_amp_02.png"/>
         </Property>
       </Properties>
     </Component>
@@ -206,7 +206,7 @@
         <Component class="javax.swing.JComboBox" name="ComboRFUnit">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="ComboSI.Resistor" type="code"/>
+              <Connection code="ComboSI.Resistor()" type="code"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -236,7 +236,7 @@
         <Component class="javax.swing.JComboBox" name="ComboLOUnit">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="ComboSI.Inductor" type="code"/>
+              <Connection code="ComboSI.Inductor()" type="code"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -271,7 +271,7 @@
         <Component class="javax.swing.JComboBox" name="ComboCOUnit">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="ComboSI.CapacitorPolar" type="code"/>
+              <Connection code="ComboSI.CapacitorPolar()" type="code"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -281,7 +281,7 @@
         <Component class="javax.swing.JComboBox" name="ComboSFUnit">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="ComboSI.Frequency" type="code"/>
+              <Connection code="ComboSI.Frequency()" type="code"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -358,7 +358,7 @@
         <Component class="javax.swing.JLabel" name="LabelBP">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/UI/ErrorAmp/bode_plot_error_amp_02.png"/>
+              <Image iconType="3" name="/UI/Feedback/ErrorAmplifier/bode_plot_error_amp_02.png"/>
             </Property>
           </Properties>
         </Component>

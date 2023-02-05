@@ -1,4 +1,4 @@
-package UI.ErrorAmp;
+package UI.Feedback.ErrorAmplifier;
 
 import Convert.Measurement;
 import UI.ComboBox.ComboItem;
@@ -53,7 +53,7 @@ public class ErrorAmpT3A extends javax.swing.JDialog {
         setTitle("ErrorAmpType3A");
         setResizable(false);
 
-        LabelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/ErrorAmp/error_amp_03.png"))); // NOI18N
+        LabelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Feedback/ErrorAmplifier/error_amp_03.png"))); // NOI18N
 
         PanelInput.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -61,7 +61,7 @@ public class ErrorAmpT3A extends javax.swing.JDialog {
 
         SpinnerVSaw.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(0.7f), Float.valueOf(0.7f), Float.valueOf(999.0f), Float.valueOf(0.1f)));
 
-        ComboC1Unit.setModel(ComboSI.CapacitorNonPolar);
+        ComboC1Unit.setModel(ComboSI.CapacitorNonPolar());
 
         LabelLO.setText("L(Output):");
 
@@ -69,7 +69,7 @@ public class ErrorAmpT3A extends javax.swing.JDialog {
 
         SpinnerLO.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
 
-        ComboLOUnit.setModel(ComboSI.Inductor);
+        ComboLOUnit.setModel(ComboSI.Inductor());
 
         LabelSF.setText("Switching Frequency:");
 
@@ -77,9 +77,9 @@ public class ErrorAmpT3A extends javax.swing.JDialog {
 
         SpinnerSF.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
 
-        ComboCOUnit.setModel(ComboSI.CapacitorPolar);
+        ComboCOUnit.setModel(ComboSI.CapacitorPolar());
 
-        ComboSFUnit.setModel(ComboSI.Frequency);
+        ComboSFUnit.setModel(ComboSI.Frequency());
 
         LabelCESR.setText("C ESR(Output):");
 
@@ -176,7 +176,7 @@ public class ErrorAmpT3A extends javax.swing.JDialog {
         TextAreaOutput.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         ScrollPaneOutput.setViewportView(TextAreaOutput);
 
-        LabelBP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/ErrorAmp/bode_plot_error_amp_03.png"))); // NOI18N
+        LabelBP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Feedback/ErrorAmplifier/bode_plot_error_amp_03.png"))); // NOI18N
         ScrollPaneBP.setViewportView(LabelBP);
 
         PanelCaculator.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -248,7 +248,7 @@ public class ErrorAmpT3A extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ScrollPaneBP, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(ScrollPaneOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE))
+                    .addComponent(ScrollPaneOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -319,7 +319,7 @@ public class ErrorAmpT3A extends javax.swing.JDialog {
         ZoomBP();
     }//GEN-LAST:event_BNZoomOutBPActionPerformed
     private void ZoomBP() {
-        ImageIcon myImage = new ImageIcon(getClass().getResource("/UI/ErrorAmp/bode_plot_error_amp_03.png"));
+        ImageIcon myImage = new ImageIcon(getClass().getResource("/UI/Feedback/ErrorAmplifier/bode_plot_error_amp_03.png"));
         int w = (int) (myImage.getIconWidth() * RZoomBP);
         int h = (int) (myImage.getIconHeight() * RZoomBP);
         if (w == 0 || h == 0) {

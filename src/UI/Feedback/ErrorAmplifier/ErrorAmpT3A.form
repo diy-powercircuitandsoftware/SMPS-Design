@@ -38,7 +38,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="ScrollPaneBP" pref="0" max="32767" attributes="0"/>
-                  <Component id="ScrollPaneOutput" pref="416" max="32767" attributes="0"/>
+                  <Component id="ScrollPaneOutput" pref="352" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -67,7 +67,7 @@
     <Component class="javax.swing.JLabel" name="LabelIcon">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/UI/ErrorAmp/error_amp_03.png"/>
+          <Image iconType="3" name="/UI/Feedback/ErrorAmplifier/error_amp_03.png"/>
         </Property>
       </Properties>
     </Component>
@@ -200,7 +200,7 @@
         <Component class="javax.swing.JComboBox" name="ComboC1Unit">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="ComboSI.CapacitorNonPolar" type="code"/>
+              <Connection code="ComboSI.CapacitorNonPolar()" type="code"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -230,7 +230,7 @@
         <Component class="javax.swing.JComboBox" name="ComboLOUnit">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="ComboSI.Inductor" type="code"/>
+              <Connection code="ComboSI.Inductor()" type="code"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -265,7 +265,7 @@
         <Component class="javax.swing.JComboBox" name="ComboCOUnit">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="ComboSI.CapacitorPolar" type="code"/>
+              <Connection code="ComboSI.CapacitorPolar()" type="code"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -275,7 +275,7 @@
         <Component class="javax.swing.JComboBox" name="ComboSFUnit">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="ComboSI.Frequency" type="code"/>
+              <Connection code="ComboSI.Frequency()" type="code"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -352,7 +352,7 @@
         <Component class="javax.swing.JLabel" name="LabelBP">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/UI/ErrorAmp/bode_plot_error_amp_03.png"/>
+              <Image iconType="3" name="/UI/Feedback/ErrorAmplifier/bode_plot_error_amp_03.png"/>
             </Property>
           </Properties>
         </Component>

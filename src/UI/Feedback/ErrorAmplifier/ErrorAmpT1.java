@@ -1,4 +1,4 @@
-package UI.ErrorAmp;
+package UI.Feedback.ErrorAmplifier;
 
 import UI.ComboBox.ComboItem;
 import Convert.Measurement;
@@ -44,13 +44,13 @@ public class ErrorAmpT1 extends javax.swing.JDialog {
         setTitle("ErrorAmpType1");
         setResizable(false);
 
-        LabelCircuit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/ErrorAmp/error_amp_01.png"))); // NOI18N
+        LabelCircuit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Feedback/ErrorAmplifier/error_amp_01.png"))); // NOI18N
 
         PanelInput.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         SpinnerSF.setModel(new javax.swing.SpinnerNumberModel(1, 1, 999, 1));
 
-        ComboSFUnit.setModel(ComboSI.Frequency);
+        ComboSFUnit.setModel(ComboSI.Frequency());
 
         LabelCrossOver.setText("CrossOver Frequency:");
 
@@ -61,7 +61,7 @@ public class ErrorAmpT1 extends javax.swing.JDialog {
 
         SpinnerR1.setModel(new javax.swing.SpinnerNumberModel(Float.valueOf(1.0f), Float.valueOf(1.0f), Float.valueOf(999.0f), Float.valueOf(0.01f)));
 
-        ComboR1Unit.setModel(ComboSI.Resistor);
+        ComboR1Unit.setModel(ComboSI.Resistor());
 
         LabelSF.setText("Switching Frequency:");
 
@@ -78,16 +78,15 @@ public class ErrorAmpT1 extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ComboCrossOver, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(PanelInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PanelInputLayout.createSequentialGroup()
-                            .addComponent(SpinnerSF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(ComboSFUnit, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(PanelInputLayout.createSequentialGroup()
-                            .addComponent(SpinnerR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(ComboR1Unit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(PanelInputLayout.createSequentialGroup()
+                        .addComponent(SpinnerSF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ComboSFUnit, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(PanelInputLayout.createSequentialGroup()
+                        .addComponent(SpinnerR1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ComboR1Unit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         PanelInputLayout.setVerticalGroup(
@@ -110,7 +109,7 @@ public class ErrorAmpT1 extends javax.swing.JDialog {
                 .addContainerGap())
         );
 
-        LabelBP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/ErrorAmp/bode_plot_error_amp_01.png"))); // NOI18N
+        LabelBP.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Feedback/ErrorAmplifier/bode_plot_error_amp_01.png"))); // NOI18N
         ScrollPaneBP.setViewportView(LabelBP);
 
         PanelOutput.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -236,7 +235,7 @@ public class ErrorAmpT1 extends javax.swing.JDialog {
         ZoomBP();
     }//GEN-LAST:event_BNZoomOutBPActionPerformed
     private void ZoomBP() {
-        ImageIcon myImage = new ImageIcon(getClass().getResource("/UI/ErrorAmp/bode_plot_error_amp_01.png"));
+        ImageIcon myImage = new ImageIcon(getClass().getResource("/UI/Feedback/ErrorAmplifier/bode_plot_error_amp_01.png"));
         int w = (int) (myImage.getIconWidth() * RZoomBP);
         int h = (int) (myImage.getIconHeight() * RZoomBP);
         if (w == 0 || h == 0) {

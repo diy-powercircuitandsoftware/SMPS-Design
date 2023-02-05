@@ -17,8 +17,18 @@ public class Measurement {
         this.prefixes.put(-12, "p");
     }
 
+    public HashMap<String, String> GetPrefixesValue() {
+        HashMap<String, String> out = new HashMap<>();
+        prefixes.forEach((key, value) -> {
+            out.put(value, String.valueOf(Math.pow(10, key)));
+        });
+        return out;
+    }
+
     public String Convert(double value) {
-        double tval = value;
+        double tval = Math.abs(value);
+        boolean negsign = value < 0;
+
         int order = 0;
         if (tval == 0) {
             return "0";
@@ -32,6 +42,9 @@ public class Measurement {
             order -= 3;
         }
         if (prefixes.containsKey(order)) {
+            if (negsign) {
+                return "-" + ((float) tval) + prefixes.get(order);
+            }
             return ((float) tval) + prefixes.get(order);
         }
         return String.valueOf((float) value);
