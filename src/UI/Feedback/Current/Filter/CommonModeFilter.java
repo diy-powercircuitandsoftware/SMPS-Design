@@ -28,7 +28,7 @@ public class CommonModeFilter extends javax.swing.JDialog {
         BNCalculator = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Passive Filter 10 Time");
+        setTitle("Common Mode Filter");
         setResizable(false);
 
         LabelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Feedback/Current/Filter/CommonModeFilter.png"))); // NOI18N
