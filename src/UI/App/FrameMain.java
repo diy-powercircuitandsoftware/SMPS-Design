@@ -20,6 +20,10 @@ public class FrameMain extends javax.swing.JFrame {
         MenuCurrentResistor = new javax.swing.JMenu();
         MenuItemHighSideResistor = new javax.swing.JMenuItem();
         MenuItemLowSideResistor = new javax.swing.JMenuItem();
+        MenuFilter = new javax.swing.JMenu();
+        MenuItemCommonModeFilter = new javax.swing.JMenuItem();
+        MenuItemDifferentialModeFilter = new javax.swing.JMenuItem();
+        MenuItemFilter10Time = new javax.swing.JMenuItem();
         MenuErrorAmp = new javax.swing.JMenu();
         MenuItemErrorAmpT1 = new javax.swing.JMenuItem();
         MenuItemErrorAmpT2 = new javax.swing.JMenuItem();
@@ -28,6 +32,7 @@ public class FrameMain extends javax.swing.JFrame {
         MenuItemErrorAmpT3B = new javax.swing.JMenuItem();
         MenuOpamp = new javax.swing.JMenu();
         MenuAmp = new javax.swing.JMenu();
+        MenuItemDiffAmp = new javax.swing.JMenuItem();
         MenuItemNonInvertAmp = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,6 +81,34 @@ public class FrameMain extends javax.swing.JFrame {
 
         MenuCurrent.add(MenuCurrentResistor);
 
+        MenuFilter.setText("Filter");
+
+        MenuItemCommonModeFilter.setText("Common Mode Filter");
+        MenuItemCommonModeFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemCommonModeFilterActionPerformed(evt);
+            }
+        });
+        MenuFilter.add(MenuItemCommonModeFilter);
+
+        MenuItemDifferentialModeFilter.setText("Differential Mode Filter");
+        MenuItemDifferentialModeFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemDifferentialModeFilterActionPerformed(evt);
+            }
+        });
+        MenuFilter.add(MenuItemDifferentialModeFilter);
+
+        MenuItemFilter10Time.setText("Passive Filter 10 Time");
+        MenuItemFilter10Time.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemFilter10TimeActionPerformed(evt);
+            }
+        });
+        MenuFilter.add(MenuItemFilter10Time);
+
+        MenuCurrent.add(MenuFilter);
+
         MenuFeedback.add(MenuCurrent);
 
         MenuErrorAmp.setText("Error Amplifier ");
@@ -118,6 +151,14 @@ public class FrameMain extends javax.swing.JFrame {
         MenuOpamp.setText("Opamp");
 
         MenuAmp.setText("Amplifier ");
+
+        MenuItemDiffAmp.setText("Differential Amplifier");
+        MenuItemDiffAmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemDiffAmpActionPerformed(evt);
+            }
+        });
+        MenuAmp.add(MenuItemDiffAmp);
 
         MenuItemNonInvertAmp.setText("Non Inverting Amplifier");
         MenuItemNonInvertAmp.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +205,7 @@ public class FrameMain extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuItemErrorAmpT3AActionPerformed
 
     private void MenuItemNonInvertAmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemNonInvertAmpActionPerformed
-        //  new NonInvertAmp(this, true).setVisible(true);
+        new UI.Opamp.Amplifier.NonInvertAmp(this, true).setVisible(true);
     }//GEN-LAST:event_MenuItemNonInvertAmpActionPerformed
 
     private void MenuItemLowSideResistorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemLowSideResistorActionPerformed
@@ -172,8 +213,24 @@ public class FrameMain extends javax.swing.JFrame {
     }//GEN-LAST:event_MenuItemLowSideResistorActionPerformed
 
     private void MenuItemHighSideResistorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemHighSideResistorActionPerformed
-          new UI.Feedback.Current.Resistor.CurrentHighSideResistor(this, true).setVisible(true);
+        new UI.Feedback.Current.Resistor.CurrentHighSideResistor(this, true).setVisible(true);
     }//GEN-LAST:event_MenuItemHighSideResistorActionPerformed
+
+    private void MenuItemDiffAmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemDiffAmpActionPerformed
+        new UI.Opamp.Amplifier.DiffAmp(this, true).setVisible(true);
+    }//GEN-LAST:event_MenuItemDiffAmpActionPerformed
+
+    private void MenuItemFilter10TimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemFilter10TimeActionPerformed
+        new UI.Feedback.Current.Filter.Filter10Time(this, true).setVisible(true);
+    }//GEN-LAST:event_MenuItemFilter10TimeActionPerformed
+
+    private void MenuItemDifferentialModeFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemDifferentialModeFilterActionPerformed
+        new UI.Feedback.Current.Filter.DifferentialModeFilter(this, true).setVisible(true);
+    }//GEN-LAST:event_MenuItemDifferentialModeFilterActionPerformed
+
+    private void MenuItemCommonModeFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemCommonModeFilterActionPerformed
+        new UI.Feedback.Current.Filter.CommonModeFilter(this, true).setVisible(true);
+    }//GEN-LAST:event_MenuItemCommonModeFilterActionPerformed
 
     public static void main(String args[]) {
 
@@ -201,12 +258,17 @@ public class FrameMain extends javax.swing.JFrame {
     private javax.swing.JMenu MenuCurrentResistor;
     private javax.swing.JMenu MenuErrorAmp;
     private javax.swing.JMenu MenuFeedback;
+    private javax.swing.JMenu MenuFilter;
     private javax.swing.JMenu MenuIsolate;
     private javax.swing.JMenuItem MenuItemBuckConverter;
+    private javax.swing.JMenuItem MenuItemCommonModeFilter;
+    private javax.swing.JMenuItem MenuItemDiffAmp;
+    private javax.swing.JMenuItem MenuItemDifferentialModeFilter;
     private javax.swing.JMenuItem MenuItemErrorAmpT1;
     private javax.swing.JMenuItem MenuItemErrorAmpT2;
     private javax.swing.JMenuItem MenuItemErrorAmpT3A;
     private javax.swing.JMenuItem MenuItemErrorAmpT3B;
+    private javax.swing.JMenuItem MenuItemFilter10Time;
     private javax.swing.JMenuItem MenuItemHighSideResistor;
     private javax.swing.JMenuItem MenuItemLowSideResistor;
     private javax.swing.JMenuItem MenuItemNonInvertAmp;

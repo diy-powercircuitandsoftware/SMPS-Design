@@ -4,9 +4,9 @@ import Convert.Measurement;
 import UI.ComboBox.ComboItem;
 import UI.ComboBox.ComboSI;
 
-public class BuckConverter extends javax.swing.JDialog {
+public class BoostConverter extends javax.swing.JDialog {
 
-    public BuckConverter(java.awt.Frame parent, boolean modal) {
+    public BoostConverter(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -40,7 +40,7 @@ public class BuckConverter extends javax.swing.JDialog {
         setTitle("Buck Converter");
         setResizable(false);
 
-        LabelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Topology/NonIsolate/buck_converter.png"))); // NOI18N
+        LabelIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Topology/NonIsolate/boost_converter.png"))); // NOI18N
 
         PanelInput.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 

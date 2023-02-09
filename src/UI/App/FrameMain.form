@@ -64,6 +64,37 @@
                     </MenuItem>
                   </SubComponents>
                 </Menu>
+                <Menu class="javax.swing.JMenu" name="MenuFilter">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Filter"/>
+                  </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="MenuItemCommonModeFilter">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Common Mode Filter"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemCommonModeFilterActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="MenuItemDifferentialModeFilter">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Differential Mode Filter"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemDifferentialModeFilterActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="MenuItemFilter10Time">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Passive Filter 10 Time"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemFilter10TimeActionPerformed"/>
+                      </Events>
+                    </MenuItem>
+                  </SubComponents>
+                </Menu>
               </SubComponents>
             </Menu>
             <Menu class="javax.swing.JMenu" name="MenuErrorAmp">
@@ -121,6 +152,14 @@
                 <Property name="text" type="java.lang.String" value="Amplifier "/>
               </Properties>
               <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="MenuItemDiffAmp">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Differential Amplifier"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemDiffAmpActionPerformed"/>
+                  </Events>
+                </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="MenuItemNonInvertAmp">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Non Inverting Amplifier"/>
