@@ -1,0 +1,176 @@
+ 
+<html>
+    <head>
+        <title>Type3A ErrorAmp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../../../js/minquery.js"  ></script>
+        <script src="../../../js/si.js"  ></script>
+        <style>
+            a{
+                color: blue;
+                text-decoration: none;
+            }
+            body{
+                margin: 0;
+                padding: 0;
+            }
+
+        </style>
+
+        <script>
+            var mq = new MinQuery();
+            mq.docready(function () {
+                let si = new SIUnit();
+                mq.s(".bntab").tab(".tab", "data-id");
+                mq.s("#fequnit").addoption(si.selectsikeyvalue(["k", "M"]));
+
+                mq.s("#c1unit").addoption(si.selectsikeyvalue(["u", "n", "p"]));
+                mq.s("#lounit").addoption(si.selectsikeyvalue(["m", "u", "n"]));
+                mq.s("#counit").addoption(si.selectsikeyvalue(["", "m", "u"]));
+                mq.s("#bncalculate").click(function () {
+                    const valbyname = mq.s(".input").valbyname();
+                    const swfeq = parseFloat(valbyname["swfeq"]) * parseFloat(valbyname["swfequnit"]);
+                    const c1 = parseFloat(valbyname["c1"]) * parseFloat(valbyname["c1unit"]);
+                    const lo = parseFloat(valbyname["lo"]) * parseFloat(valbyname["lounit"]);
+                    const co = parseFloat(valbyname["co"]) * parseFloat(valbyname["counit"]);
+                    const crossover = swfeq / 10;
+
+                    const flc = 1 / (2 * Math.PI * Math.sqrt(lo * co));
+                    const fesr = 1 / (2 * Math.PI * parseFloat(valbyname["cesr"]) * co);
+                    const fo = swfeq / 8;
+                    const fzero = 0.75 * flc;
+                    const fpole = swfeq / 2;
+
+
+                    const r1 = 1 / (2 * Math.PI * c1 * fesr);
+                    const r2 = (1 / (2 * Math.PI * c1 * flc)) - r1;
+                    const r3 = (2 * Math.PI * fo * lo * co * parseFloat(valbyname["vsawtooth"])) / ((parseFloat(valbyname["vcc"]) * c1));
+                    const c3 = 1 / (2 * Math.PI * r3 * fzero);
+                    const c2 = 1 / (2 * Math.PI * r3 * fpole);
+
+
+                    mq.s("#r1out").html(si.tosistring(r1) + "&#8486;");
+                    mq.s("#r2out").html(si.tosistring(r2) + "&#8486;");
+                    mq.s("#r3out").html(si.tosistring(r3) + "&#8486;");
+                    mq.s("#c2out").html(si.tosistring(c2) + "f");
+                    mq.s("#c3out").html(si.tosistring(c3) + "f");
+                    mq.s("#fcrossout").html(si.tosistring(crossover) + "hz");
+                    mq.s("#flowpasslcout").html(si.tosistring(flc) + "hz");
+                    mq.s("#flowpassesrout").html(si.tosistring(fesr) + "hz");
+                    mq.s("#fzeroout").html(si.tosistring(fzero) + "hz");
+                    mq.s("#fpoleout").html(si.tosistring(fpole) + "hz");
+                    mq.s("#canuseout").html((flc < fo) && (fo < fesr) && (fesr < fpole));
+
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <div style="background-color: burlywood;">
+            <span style="font-weight: bold;">View:</span>
+            <a class="bntab" data-id="1" href="#">Circuit</a>
+            <a class="bntab" data-id="2" href="#">Theory</a>
+        </div>
+        <div  class="tab" data-id="1" >
+            <img src="img/error_amp_03.png" alt="error_amp_03"/>
+            <table border="1">
+                <tr>
+                    <td>VCC</td>
+                    <td> <input class="input" type="number" name="vcc" min="1" value="1" style="width: 100%;box-sizing: border-box;" /></td>
+                </tr>
+                <tr>
+                    <td>VSawtooth:</td>
+                    <td> <input class="input" type="number" name="vsawtooth" min="1" value="1" step="0.1" style="width: 100%;box-sizing: border-box;" /></td>
+                </tr>
+                <tr>
+                    <td>Switching Frequency:</td>
+                    <td>
+                        <input class="input" type="number" name="swfeq" min="1" value="1"/>
+                        <select  class="input" id="fequnit" name="swfequnit"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Inductor Output:</td>
+                    <td>
+                        <input class="input" type="number" name="lo" min="1" value="1"/>
+                        <select  class="input" id="lounit" name="lounit"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Capacitor Output:</td>
+                    <td>
+                        <input class="input" type="number" name="co" min="1" value="1"/>
+                        <select  class="input" id="counit" name="counit"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Capacitor ESR:</td>
+                    <td> <input class="input" type="number" name="cesr" min="0.0001" value="0.1" step="0.0001" style="width: 100%;box-sizing: border-box;" /></td>
+                </tr>
+                <tr>
+                    <td>C1:</td>
+                    <td>
+                        <input  class="input"  type="number" name="c1" min="1" value="1"/>
+                        <select  class="input" id="c1unit" name="c1unit"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>R1:</td>
+                    <td><span id="r1out"></span></td>
+                </tr>
+                <tr>
+                    <td>R2:</td>
+                    <td><span id="r2out"></span></td>
+                </tr>
+                <tr>
+                    <td>R3:</td>
+                    <td><span id="r3out"></span></td>
+                </tr>
+                <tr>
+                    <td>C2:</td>
+                    <td><span id="c2out"></span></td>
+                </tr>
+                <tr>
+                    <td>C3:</td>
+                    <td><span id="c3out"></span></td>
+                </tr>
+                <tr>
+                    <td>Cross Over(fsw/8):</td>
+                    <td><span id="fcrossout"></span></td>
+                </tr>
+                <tr>
+                    <td>Low Pass LC:</td>
+                    <td><span id="flowpasslcout"></span></td>
+                </tr>  <tr>
+                    <td>Low Pass ESR:</td>
+                    <td><span id="flowpassesrout"></span></td>
+                </tr>
+                <tr>
+                    <td>Zero(75% Low Pass LC):</td>
+                    <td><span id="fzeroout"></span></td>
+                </tr>
+                <tr>
+                    <td>Pole(fsw/2):</td>
+                    <td><span id="fpoleout"></span></td>
+                </tr>
+                <tr>
+                    <td>Low Pass LC&lt;&lt;Zero&lt;&lt;Low Pass ESR&lt;&lt;Pole</td>
+                    <td><span id="canuseout"></span></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button id="bncalculate" style="width: 100%;box-sizing: border-box;">Calculate</button></td>
+                </tr>
+            </table>
+        </div>
+
+        <div  class="tab" data-id="2" >
+            <p>BodePlot</p>
+            <img src="img/bode_plot_error_amp_03.png" alt="bode_plot_error_amp_03"/>
+        </div>
+
+
+
+    </body>
+</html>

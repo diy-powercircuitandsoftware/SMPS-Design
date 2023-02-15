@@ -1,2 +1,2 @@
 # SMPS-Design
-Switching Power Supply Design Using Java
+Switching Power Supply Design

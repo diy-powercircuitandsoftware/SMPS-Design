@@ -1,0 +1,91 @@
+ 
+<html>
+    <head>
+        <title>Type1 ErrorAmp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../../../js/minquery.js"  ></script>
+        <script src="../../../js/si.js"  ></script>
+        <style>
+            a{
+                color: blue;
+                text-decoration: none;
+            }
+            body{
+                margin: 0;
+                padding: 0;
+            }
+
+        </style>
+
+        <script>
+            var mq = new MinQuery();
+            mq.docready(function () {
+                let si = new SIUnit();
+                mq.s(".bntab").tab(".tab", "data-id");
+                mq.s("#fequnit").addoption(si.selectsikeyvalue(["k", "M"]));
+                mq.s("#runit").addoption(si.selectsikeyvalue(["", "k", "M"]));
+                mq.s("#bncalculate").click(function () {
+                    const valbyname = mq.s(".input").valbyname();
+                    const swfeq = parseFloat(valbyname["swfeq"]) * parseFloat(valbyname["swfequnit"]);
+                    const crossover = swfeq / parseFloat(valbyname["crossfeq"]);
+                    const r = parseFloat(valbyname["r"]) * parseFloat(valbyname["runit"]);
+                    const c = 1 / (2 * Math.PI * crossover * r);
+                    mq.s("#c1out").html(si.tosistring(c) + "f");
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <div style="background-color: burlywood;">
+            <span style="font-weight: bold;">View:</span>
+            <a class="bntab" data-id="1" href="#">Circuit</a>
+            <a class="bntab" data-id="2" href="#">Theory</a>
+
+        </div>
+        <div  class="tab" data-id="1" >
+            <img  src="img/error_amp_01.png" alt="error_amp_01"/>
+            <table  border="1">
+                <tr>
+                    <td>Switching Frequency:</td>
+                    <td>
+                        <input class="input" type="number" name="swfeq" min="1" value="1"/>
+                        <select  class="input" id="fequnit" name="swfequnit"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Crossover Frequency:</td>
+                    <td> 
+                        <select  class="input" name="crossfeq" style="width: 100%;box-sizing: border-box;">
+                            <option value="5">5</option>
+                            <option value="10">10</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>R1:</td>
+                    <td>
+                        <input  class="input"  type="number" name="r" min="1" value="1"/>
+                        <select  class="input" id="runit" name="runit"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>C1:</td>
+                    <td><span id="c1out"></span></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button id="bncalculate" style="width: 100%;box-sizing: border-box;">Calculate</button></td>
+                </tr>
+            </table>
+        </div>
+        <div  class="tab" data-id="2" >
+            <p>BodePlot</p>
+            <img src="img/bode_plot_error_amp_01.png" alt="bode_plot_error_amp_01"/>
+        </div>
+
+
+
+
+    </body>
+</html>

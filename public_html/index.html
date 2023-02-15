@@ -1,15 +1,75 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
+ 
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>SMPS Design</title>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="css/page.css"  rel="stylesheet">
+        <script src="js/minquery.js"  ></script>
+        <script>
+            var mq = new MinQuery();
+            mq.docready(function () {
+                mq.s(".openiframe").click(function (e) {
+                    e.preventDefault();
+                    document.getElementById("iframeload").src = this.href;
+                });
+
+            });
+
+        </script>
     </head>
     <body>
-        <div>TODO write content</div>
+        <header>
+
+        </header>
+        <div class="flexbox">
+            <nav>
+                <div class="borderbox">
+                    <span class="titlebox">Topology</span>
+                    <ul style="list-style: none;padding: 0;">
+                        <li>
+                            <span style="color: blue;cursor: default;">Isolate</span>
+                            <ul style="list-style: none;">
+                                <li><a>Buck</a></li>
+                                <li><a>Boost</a></li>
+                                <li><a>Buck Boost</a></li>
+                            </ul>
+                        </li>
+                        <li> <span style="color: blue;cursor: default;" >Non Isolate</span></li>
+                    </ul>
+                </div>
+                <div class="borderbox">
+                    <span class="titlebox">Feedback</span>
+                    <ul style="list-style: none;padding: 0;">
+                        <li> 
+                            <span style="color: blue;cursor: default;">Current Sense</span> 
+                            <ul style="list-style: none;">
+                                <li></li>
+                                <li> </li>
+                                <li> </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span style="color: blue;cursor: default;">Error Amplifier</span>
+                            <ul style="list-style: none;">
+                                <li><a class="openiframe"  href="page/feedback/erroramp/type1.html">Type 1</a></li>
+                                <li><a class="openiframe"  href="page/feedback/erroramp/type2.html">Type 2</a></li>
+                                <li><a class="openiframe"  href="page/feedback/erroramp/type3a.html">Type 3A</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+            </nav>
+            <main>
+                <iframe id="iframeload" style="width:80vw; height: 100vh;">
+
+                </iframe>
+            </main>
+        </div>
+
+        <footer>
+
+        </footer>
     </body>
 </html>
