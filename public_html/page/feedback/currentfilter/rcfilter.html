@@ -1,0 +1,120 @@
+ 
+<html>
+    <head>
+        <title>Filter</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../../../js/minquery.js"  ></script>
+        <script src="../../../js/si.js"  ></script>
+        <style>
+            a{
+                color: blue;
+                text-decoration: none;
+            }
+            body{
+                margin: 0;
+                padding: 0;
+            }
+
+        </style>
+
+        <script>
+            var mq = new MinQuery();
+            mq.docready(function () {
+                let si = new SIUnit();
+                let subtabindex = 1;
+                mq.s(".bntab").tab(".tab", "data-id");
+                mq.s(".bnsubtab").tab(".subtab", "data-id", function (x) {
+                    subtabindex = x;
+                    mq.s("#cout").html("");
+                });
+                mq.s("#fequnit").addoption(si.selectsikeyvalue(["k", "M"]));
+                mq.s("#runit").addoption(si.selectsikeyvalue(["", "k", "M"]));
+                mq.s("#bncalculate").click(function () {
+                    const valbyname = mq.s(".input").valbyname();
+                    const swfeq = parseFloat(valbyname["swfeq"]) * parseFloat(valbyname["swfequnit"]);
+                    const crossover = parseFloat(valbyname["crossover"]);
+                    const r = parseFloat(valbyname["r"]) * parseFloat(valbyname["runit"]);
+                    let c = 0;
+                    if (subtabindex == 2) {
+                        c = 1 / (2 * Math.PI * (swfeq*crossover) * (2 * r));
+                    } else {
+                        c = 1 / (2 * Math.PI * (swfeq * crossover) * r);
+                    }
+
+                    mq.s("#cout").html(si.tosistring(c) + "f");
+                });
+            });
+
+        </script>
+    </head>
+    <body>
+        <div style="background-color: burlywood;">
+            <span style="font-weight: bold;">View:</span>
+
+            <div style="display: inline;" class="bntab" data-id="1" >
+
+                <a class="bnsubtab" data-id="1" href="#">CommonMode</a>
+                <a class="bnsubtab" data-id="2" href="#">DifferentialMode</a>
+                <a class="bnsubtab" data-id="3" href="#">LowSide</a>
+            </div>
+            <a class="bntab" data-id="2" href="#">Theory</a>
+
+        </div>
+        <div  class="tab" data-id="1" >
+
+            <img  class="subtab" data-id="1"  src="img/commonmode.png" alt="Common Mode"/>
+            <img  class="subtab" data-id="2"  src="img/differentialmode.png" alt="Differential Mode"/>
+            <img  class="subtab" data-id="3"  src="img/lowside.png" alt="Low Side"/>
+            <table  border="1">
+                <tr>
+                    <td>Switching Frequency:</td>
+                    <td>
+                        <input class="input" type="number" name="swfeq" min="1" value="1"/>
+                        <select  class="input" id="fequnit" name="swfequnit"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>CrossOver Frequency:</td>
+                    <td>
+                        <select  class="input"  name="crossover" style="width: 100%;box-sizing: border-box;">
+                            <option value="1">3db</option>
+                            <option value="10">10 Time</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="subtab"  data-id="1">RA:</span>
+                        <span class="subtab"  data-id="2">RA:</span>
+                        <span class="subtab"  data-id="3"> R1:</span>
+                    </td>
+                    <td>
+                        <input  class="input"  type="number" name="r" min="1" value="1"/>
+                        <select  class="input" id="runit" name="runit"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="subtab"  data-id="1">CA:</span>
+                        <span class="subtab"  data-id="2">C1:</span>
+                        <span class="subtab"  data-id="3">C1:</span>
+                    </td>
+                    <td>
+                        <span id="cout"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button id="bncalculate" style="width: 100%;box-sizing: border-box;">Calculate</button></td>
+                </tr>
+            </table>
+        </div>
+        <div  class="tab" data-id="2" >
+
+        </div>
+
+
+
+
+    </body>
+</html>

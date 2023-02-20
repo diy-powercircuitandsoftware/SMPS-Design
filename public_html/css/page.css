@@ -13,13 +13,15 @@ a{
 }
 .flexbox{
     display: flex;
+    width: 100%;
 }
 
 .flexbox nav{
     max-width: 20%;
 }
 .flexbox main{
-    max-width: 80%;
+    flex-grow: 1;
+    
 }
 
 .titlebox{

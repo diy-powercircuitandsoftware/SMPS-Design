@@ -18,6 +18,26 @@ class MinQuery_Chain {
     constructor(dom) {
         this.dom = dom;
     }
+    attr(...args) {
+        if (args.length == 1) {
+            let out = [];
+            this.dom.forEach(function (item) {
+                out.push(item.getAttribute(args[0]));
+            });
+            return out;
+        } else if (args.length == 2) {
+            this.dom.forEach(function (item) {
+                if (args[1] == null) {
+                    item.removeAttribute(args[0]);
+                } else {
+                    item.setAttribute(args[0], args[1]);
+                }
+
+            });
+
+        }
+        return this;
+    }
     addoption(array) {
         this.dom.forEach(function (item) {
             if (item.tagName == "SELECT") {
@@ -44,12 +64,12 @@ class MinQuery_Chain {
         });
         return this;
     }
-    html(text){
-         this.dom.forEach(function (item) {
-            item.innerHTML=text;
+    html(text) {
+        this.dom.forEach(function (item) {
+            item.innerHTML = text;
         });
     }
-    tab(q, attr) {
+    tab(q, attr, cb) {
         this.dom.forEach(function (item) {
             item.addEventListener("click", function () {
                 const attrname = this.tabs.attr;
@@ -60,16 +80,34 @@ class MinQuery_Chain {
                         if (getComputedStyle(dom, null).getPropertyValue("display") == "none") {
                             dom.style.display = "revert";
                         }
+
                     } else {
                         dom.style.display = "none";
                     }
                 });
+                if (typeof cb === "function") {
+                    cb(attrvalue);
+                }
             });
             item.tabs = {};
             item.tabs.dom = document.querySelectorAll(q);
             item.tabs.attr = attr;
         });
         this.dom[0].click();
+        return this;
+    }
+    val(...args) {
+        if (args.length == 0) {
+            let out = [];
+            this.dom.forEach(function (item) {
+                out.push(item.value);
+            });
+            return out;
+        } else if (args.length == 1) {
+            this.dom.forEach(function (item) {
+                item.value(args[0]);
+            });
+        }
         return this;
     }
     valbyname() {

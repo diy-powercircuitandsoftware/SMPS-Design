@@ -1,0 +1,128 @@
+ 
+<html>
+    <head>
+        <title>Current Amp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="../../../js/minquery.js"  ></script>
+        <script src="../../../js/si.js"  ></script>
+        <style>
+            a{
+                color: blue;
+                text-decoration: none;
+            }
+            body{
+                margin: 0;
+                padding: 0;
+            }
+
+        </style>
+
+        <script>
+            var mq = new MinQuery();
+            mq.docready(function () {
+                let si = new SIUnit();
+                let subtabindex = 1;
+                mq.s(".bntab").tab(".tab", "data-id");
+                mq.s(".bnsubtab").tab(".subtab", "data-id", function (x) {
+                    subtabindex = x;
+                    mq.s("#rfeedback,#rsout").html("");
+                });
+                mq.s("#currentunit,#vshuntunit").addoption(si.selectsikeyvalue(["", "m"]));
+
+                mq.s("#runit,#runit").addoption(si.selectsikeyvalue(["", "k", "M"]));
+                mq.s("#bncalculate").click(function () {
+                    const valbyname = mq.s(".input").valbyname();
+                    const current = parseFloat(valbyname["current"]) * parseFloat(valbyname["currentunit"]);
+                    const vshunt = parseFloat(valbyname["vshunt"]) * parseFloat(valbyname["vshuntunit"]);
+                    const ra = parseFloat(valbyname["r"]) * parseFloat(valbyname["runit"]);
+                    const rshunt = vshunt / current;
+                    const pd = vshunt * current;
+                    const gain = (parseFloat(valbyname["vout"]) / vshunt);
+                    let rb = gain * ra;
+                    if (subtabindex == "1") {
+                        rb = gain * ra;
+                    } else if (subtabindex == "2") {
+                        rb = Math.abs((gain - 1) * ra);
+                    }
+
+                    mq.s("#rfeedback").html(si.tosistring(rb) + "&#8486;");
+                    mq.s("#rsout").html(si.tosistring(rshunt) + "&#8486;/" + si.tosistring(pd) + "W");
+
+                });
+
+            });
+
+        </script>
+    </head>
+    <body>
+        <div style="background-color: burlywood;">
+            <span style="font-weight: bold;">View:</span>
+            <div class="bntab" data-id="1" style="display: inline;">
+                <a class="bnsubtab" data-id="1"  href="#">HideSide</a>
+                <a class="bnsubtab" data-id="2" href="#">LowSide</a>
+            </div>
+
+            <a class="bntab" data-id="2" href="#">Theory</a>
+
+        </div>
+        <div  class="tab" data-id="1">
+            <img class="subtab"  data-id="1"  src="img/rhighside.png" alt="High Side"/>
+            <img  class="subtab" data-id="2" src="img/rlowside.png" alt="Low Side"/>
+            <table  border="1">
+                <tr>
+                    <td>Current:</td>
+                    <td>
+                        <input class="input" type="number" name="current" min="1" value="1"/>
+                        <select  class="input" id="currentunit" name="currentunit"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>VShunt:</td>
+                    <td>
+                        <input class="input" type="number" name="vshunt" min="1" value="1"/>
+                        <select  class="input" id="vshuntunit" name="vshuntunit"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="subtab"  data-id="1"> RA:</span>
+                        <span class="subtab"  data-id="2"> R1:</span>
+                    </td>
+                    <td>
+                        <input  class="input"  type="number" name="r" min="1" value="1"/>
+                        <select  class="input" id="runit" name="runit"></select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>VOUT:</td>
+                    <td>
+                        <input style="width: 100%;box-sizing: border-box;" class="input" type="number" name="vout" min="0.7" value="0.7" step="0.1"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="subtab"  data-id="1"> RB:</span>
+                        <span class="subtab"  data-id="2">R2</span>
+                    </td>
+                    <td><span id="rfeedback"></span></td>
+                </tr>
+                <tr>
+                    <td>RS:</td>
+                    <td><span id="rsout"></span></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button id="bncalculate" style="width: 100%;box-sizing: border-box;">Calculate</button></td>
+                </tr>
+            </table>
+        </div>
+
+        <div  class="tab" data-id="2" >
+
+        </div>
+
+
+
+
+    </body>
+</html>
