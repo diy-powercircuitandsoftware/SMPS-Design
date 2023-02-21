@@ -1,7 +1,7 @@
  
 <html>
     <head>
-        <title>Buck Boost Converter</title>
+        <title>Cuk Sepic Zeta  Converter</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="../../../js/minquery.js"  ></script>
@@ -43,7 +43,7 @@
                 });
                 mq.s("#fequnit").addoption(si.selectsikeyvalue(["k", "M"]));
                 mq.s("#bncalculate").click(function () {
-                    mq.s("#l2out,#c3out").html("");
+
                     const valbyname = mq.s(".input").valbyname();
                     const vcc = parseFloat(valbyname["vcc"]);
                     const vout = parseFloat(valbyname["vout"]);
@@ -84,8 +84,18 @@
                         dil = (vcc * d) / (feq * l1);
                         limax = il + (dil / 2);
                         c2 = (current * d) / (Math.abs(vout) * vripple * feq);
-                    }  
-
+                    } else if (subtabindex == "4" && (vout < vcc) && vout < 0) {
+                        d = Math.abs(vout) / (Math.abs(vout) + vcc);
+                        d1 = (1 - d);
+                        const il = (vcc * d * current) / (Math.abs(vout) * Math.pow(d1, 2));
+                        l1 = 1.25 * ((Math.pow(d1, 2) * Math.abs(vout)) / (2 * feq * current));
+                        dil = (vcc * d) / (feq * l1);
+                        limax = il + (dil / 2);
+                        c2 = (current * d) / (Math.abs(vout) * vripple * feq);
+                        mq.s("#l2out").html(si.tosistring(l2) + "H/" + si.tosistring(limax) + "A");
+                        mq.s("#c3out").html(si.tosistring(c3));
+                    }
+//     mq.s("#l2out,#c3out").html("");
                     mq.s("#dout").html(d.toFixed(1));
                     mq.s("#l1out").html(si.tosistring(l1) + "H/" + si.tosistring(limax) + "A");
 
@@ -100,20 +110,20 @@
         <div style="background-color: burlywood;">
             <span style="font-weight: bold;">View:</span>
             <div class="bntab" data-id="1" style="display: inline;">
-                <a class="bnsubtab" data-id="1"  href="#">Buck</a>
-                <a class="bnsubtab" data-id="2" href="#">Boost</a>
-                <a class="bnsubtab" data-id="3" href="#">BuckBoost</a>
-                 
+                <a class="bnsubtab" data-id="1"  href="#">Cuk</a>
+                <a class="bnsubtab" data-id="2" href="#">Sepic</a>
+                <a class="bnsubtab" data-id="3" href="#">Zeta</a>
+
             </div>
 
             <a class="bntab" data-id="2" href="#">Theory</a>
 
         </div>
         <div  class="tab" data-id="1">
-            <img class="subtab"  data-id="1"  src="img/buck.png" alt="Buck"/>
-            <img  class="subtab" data-id="2" src="img/boost.png" alt="Boost"/>
-            <img  class="subtab" data-id="3" src="img/buckboost.png" alt="BuckBoost"/>
-          
+
+            <img  class="subtab" data-id="1" src="img/cuk.png" alt="CUK"/>
+            <img  class="subtab" data-id="2" src="img/sepic.png" alt="SEPIC"/>
+            <img  class="subtab" data-id="3" src="img/zeta.png" alt="ZETA"/>
             <table  border="1">
                 <tr>
                     <td>VCC:</td>
@@ -154,12 +164,18 @@
                     <td>L1:</td>
                     <td><span id="l1out"></span></td>
                 </tr>
-              
+                <tr>
+                    <td>L2:</td>
+                    <td><span id="l2out"></span></td>
+                </tr>
                 <tr>
                     <td>C2:</td>
                     <td><span id="c2out"></span></td>
                 </tr>
-               
+                <tr>
+                    <td>C3:</td>
+                    <td><span id="c3out"></span></td>
+                </tr>
 
                 <tr>
                     <td colspan="2"><button id="bncalculate" style="width: 100%;box-sizing: border-box;">Calculate</button></td>
