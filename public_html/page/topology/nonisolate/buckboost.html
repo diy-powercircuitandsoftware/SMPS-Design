@@ -52,10 +52,8 @@
                     const feq = parseFloat(valbyname["feq"]) * parseFloat(valbyname["fequnit"]);
                     let d = 0;
                     let l1 = 0;
-                    let l2 = 0;
                     let limax = 0;
                     let c2 = 0;
-                    let c3 = 0;
                     let d1 = 0;
                     let dil = 0;
 
@@ -84,7 +82,7 @@
                         dil = (vcc * d) / (feq * l1);
                         limax = il + (dil / 2);
                         c2 = (current * d) / (Math.abs(vout) * vripple * feq);
-                    }  
+                    }
 
                     mq.s("#dout").html(d.toFixed(1));
                     mq.s("#l1out").html(si.tosistring(l1) + "H/" + si.tosistring(limax) + "A");
@@ -103,7 +101,7 @@
                 <a class="bnsubtab" data-id="1"  href="#">Buck</a>
                 <a class="bnsubtab" data-id="2" href="#">Boost</a>
                 <a class="bnsubtab" data-id="3" href="#">BuckBoost</a>
-                 
+
             </div>
 
             <a class="bntab" data-id="2" href="#">Theory</a>
@@ -113,7 +111,7 @@
             <img class="subtab"  data-id="1"  src="img/buck.png" alt="Buck"/>
             <img  class="subtab" data-id="2" src="img/boost.png" alt="Boost"/>
             <img  class="subtab" data-id="3" src="img/buckboost.png" alt="BuckBoost"/>
-          
+
             <table  border="1">
                 <tr>
                     <td>VCC:</td>
@@ -154,12 +152,12 @@
                     <td>L1:</td>
                     <td><span id="l1out"></span></td>
                 </tr>
-              
+
                 <tr>
                     <td>C2:</td>
                     <td><span id="c2out"></span></td>
                 </tr>
-               
+
 
                 <tr>
                     <td colspan="2"><button id="bncalculate" style="width: 100%;box-sizing: border-box;">Calculate</button></td>

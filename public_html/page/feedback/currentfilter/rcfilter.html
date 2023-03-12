@@ -37,14 +37,20 @@
                     const r = parseFloat(valbyname["r"]) * parseFloat(valbyname["runit"]);
                     let c = 0;
                     if (subtabindex == 2) {
-                        c = 1 / (2 * Math.PI * (swfeq*crossover) * (2 * r));
+                        c = 1 / (2 * Math.PI * (swfeq * crossover) * (2 * r));
                     } else {
                         c = 1 / (2 * Math.PI * (swfeq * crossover) * r);
                     }
 
                     mq.s("#cout").html(si.tosistring(c) + "f");
                 });
+                mq.s(".linkpdf").click(function () {
+                    mq.s("#viewpdf").attr("src", this.getAttribute("data-link"));
+                });
             });
+
+
+
 
         </script>
     </head>
@@ -110,7 +116,11 @@
             </table>
         </div>
         <div  class="tab" data-id="2" >
-
+            <div>
+                <a class="linkpdf" href="#" data-link="help/AN4304.pdf">3db</a>
+                <a class="linkpdf" href="#" data-link="help/64AN060E.pdf">10 time</a>
+            </div>
+            <iframe id="viewpdf" style="width: 100%;height: 100%;"></iframe>
         </div>
 
 

@@ -24,7 +24,6 @@
                 let si = new SIUnit();
                 mq.s(".bntab").tab(".tab", "data-id");
                 mq.s("#fequnit").addoption(si.selectsikeyvalue(["k", "M"]));
-
                 mq.s("#c1unit").addoption(si.selectsikeyvalue(["u", "n", "p"]));
                 mq.s("#lounit").addoption(si.selectsikeyvalue(["m", "u", "n"]));
                 mq.s("#counit").addoption(si.selectsikeyvalue(["", "m", "u"]));
@@ -35,21 +34,16 @@
                     const lo = parseFloat(valbyname["lo"]) * parseFloat(valbyname["lounit"]);
                     const co = parseFloat(valbyname["co"]) * parseFloat(valbyname["counit"]);
                     const crossover = swfeq / 10;
-
                     const flc = 1 / (2 * Math.PI * Math.sqrt(lo * co));
                     const fesr = 1 / (2 * Math.PI * parseFloat(valbyname["cesr"]) * co);
                     const fo = swfeq / 8;
                     const fzero = 0.75 * flc;
                     const fpole = swfeq / 2;
-
-
                     const r1 = 1 / (2 * Math.PI * c1 * fesr);
                     const r2 = (1 / (2 * Math.PI * c1 * flc)) - r1;
                     const r3 = (2 * Math.PI * fo * lo * co * parseFloat(valbyname["vsawtooth"])) / ((parseFloat(valbyname["vcc"]) * c1));
                     const c3 = 1 / (2 * Math.PI * r3 * fzero);
                     const c2 = 1 / (2 * Math.PI * r3 * fpole);
-
-
                     mq.s("#r1out").html(si.tosistring(r1) + "&#8486;");
                     mq.s("#r2out").html(si.tosistring(r2) + "&#8486;");
                     mq.s("#r3out").html(si.tosistring(r3) + "&#8486;");
@@ -71,7 +65,8 @@
         <div style="background-color: burlywood;">
             <span style="font-weight: bold;">View:</span>
             <a class="bntab" data-id="1" href="#">Circuit</a>
-            <a class="bntab" data-id="2" href="#">Theory</a>
+            <a class="bntab" data-id="2" href="#">BodePlot(Theory)</a>
+            <a class="bntab" data-id="3" href="#">References</a>
         </div>
         <div  class="tab" data-id="1" >
             <img src="img/error_amp_03.png" alt="error_amp_03"/>
@@ -164,12 +159,12 @@
                 </tr>
             </table>
         </div>
-
         <div  class="tab" data-id="2" >
-            <p>BodePlot</p>
             <img src="img/bode_plot_error_amp_03.png" alt="bode_plot_error_amp_03"/>
         </div>
-
+        <div  class="tab" data-id="3" >
+            <iframe style="width: 100%;height: 100%;" src="help/AN-1162.pdf"></iframe>
+        </div>
 
 
     </body>

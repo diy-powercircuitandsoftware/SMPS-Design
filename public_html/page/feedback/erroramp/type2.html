@@ -35,7 +35,6 @@
                     const lo = parseFloat(valbyname["lo"]) * parseFloat(valbyname["lounit"]);
                     const co = parseFloat(valbyname["co"]) * parseFloat(valbyname["counit"]);
                     const crossover = swfeq / 10;
-
                     const flc = 1 / (2 * Math.PI * Math.sqrt(lo * co));
                     const fesr = 1 / (2 * Math.PI * parseFloat(valbyname["cesr"]) * co);
                     const fo = swfeq / 10;
@@ -63,7 +62,8 @@
         <div style="background-color: burlywood;">
             <span style="font-weight: bold;">View:</span>
             <a class="bntab" data-id="1" href="#">Circuit</a>
-            <a class="bntab" data-id="2" href="#">Theory</a>
+            <a class="bntab" data-id="2" href="#">BodePlot(Theory)</a>
+            <a class="bntab" data-id="3" href="#">References</a>
         </div>
         <div  class="tab" data-id="1" >
             <img src="img/error_amp_02.png" alt="error_amp_02"/>
@@ -148,13 +148,11 @@
                 </tr>
             </table>
         </div>
-
         <div  class="tab" data-id="2" >
-            <p>BodePlot</p>
             <img src="img/bode_plot_error_amp_02.png" alt="bode_plot_error_amp_02"/>
         </div>
-
-
-
+        <div  class="tab" data-id="3" >
+            <iframe style="width: 100%;height: 100%;" src="help/AN-1162.pdf"></iframe>
+        </div>
     </body>
 </html>
